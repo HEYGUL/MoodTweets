@@ -4,6 +4,7 @@ PODS:
   - JSONModel (1.0.2)
   - pop (1.0.7)
   - STTwitter (0.1.8)
+  - Unirest (1.1.3)
 
 DEPENDENCIES:
   - Bolts
@@ -11,6 +12,7 @@ DEPENDENCIES:
   - JSONModel
   - pop (~> 1.0)
   - STTwitter (~> 0.1)
+  - Unirest
 
 SPEC CHECKSUMS:
   Bolts: 3db0a875235e0c9042b013af13af0f00f79b102c
@@ -18,5 +20,6 @@ SPEC CHECKSUMS:
   JSONModel: cbdef0fdff1cc70e913a860861d3072860efd3a1
   pop: 2f14a1ea61339767af9e66741b418c831b3844df
   STTwitter: 15d299aeb63fe7aad6285d61dd058d0aaa778a82
+  Unirest: 318cb0193686af2b2a453fa20df5637606033be9
 
 COCOAPODS: 0.36.0.beta.1

@@ -11,6 +11,8 @@
 		A81261B71A7C317C00167FD5 /* MoodTweetsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B8808F1A7C2F4400DA4252 /* MoodTweetsTests.m */; };
 		A81261BD1A7C31B100167FD5 /* Animator.m in Sources */ = {isa = PBXBuildFile; fileRef = A81261BA1A7C31B100167FD5 /* Animator.m */; };
 		A81261BE1A7C31B100167FD5 /* NavigationControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A81261BC1A7C31B100167FD5 /* NavigationControllerDelegate.m */; };
+		A81261C21A7C385400167FD5 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A81261C01A7C385400167FD5 /* Crashlytics.framework */; };
+		A81261C31A7C385400167FD5 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A81261C11A7C385400167FD5 /* Fabric.framework */; };
 		A825001D1A7564D6002EF323 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A825001C1A7564D6002EF323 /* Accounts.framework */; };
 		A8B880911A7C2F4400DA4252 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = A8B8806B1A7C2F4400DA4252 /* Podfile */; };
 		A8B880921A7C2F4400DA4252 /* Code.png in Resources */ = {isa = PBXBuildFile; fileRef = A8B8806E1A7C2F4400DA4252 /* Code.png */; };
@@ -50,6 +52,8 @@
 		A81261BA1A7C31B100167FD5 /* Animator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Animator.m; sourceTree = "<group>"; };
 		A81261BB1A7C31B100167FD5 /* NavigationControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationControllerDelegate.h; sourceTree = "<group>"; };
 		A81261BC1A7C31B100167FD5 /* NavigationControllerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationControllerDelegate.m; sourceTree = "<group>"; };
+		A81261C01A7C385400167FD5 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		A81261C11A7C385400167FD5 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		A825001C1A7564D6002EF323 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		A8B8806B1A7C2F4400DA4252 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		A8B8806E1A7C2F4400DA4252 /* Code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Code.png; sourceTree = "<group>"; };
@@ -86,7 +90,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A825001D1A7564D6002EF323 /* Accounts.framework in Frameworks */,
+				A81261C21A7C385400167FD5 /* Crashlytics.framework in Frameworks */,
 				70B3A6AA7D2AFFB3021D24E5 /* libPods.a in Frameworks */,
+				A81261C31A7C385400167FD5 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +123,8 @@
 		27A466E349FCAD4F971D89DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A81261C01A7C385400167FD5 /* Crashlytics.framework */,
+				A81261C11A7C385400167FD5 /* Fabric.framework */,
 				A81261B51A7C316700167FD5 /* SenTestingKit.framework */,
 				A825001C1A7564D6002EF323 /* Accounts.framework */,
 				2FF868C0BBE3347EC49F961E /* libPods.a */,
@@ -246,6 +254,7 @@
 				1151EF08ED85E7150574F6F1 /* Frameworks */,
 				1151E22E8B04711A6B27AEA3 /* Resources */,
 				A5F2B9156ADDAA031C389FFC /* Copy Pods Resources */,
+				A81261BF1A7C382900167FD5 /* Crashlytics */,
 			);
 			buildRules = (
 			);
@@ -364,6 +373,20 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A81261BF1A7C382900167FD5 /* Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Crashlytics;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run f393358d71776e2fcef88f53fdb94de3914a84f4 68b3f348e30d7a1de0fb1ecefdf3e851b598fc53fb226cb4f469cc0a59fd34a2";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -426,6 +449,10 @@
 			baseConfigurationReference = 19F109530D1E49C54F16588E /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/MoodTweets/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -511,6 +538,10 @@
 			baseConfigurationReference = 81028C57E02D67B12EF601B3 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/MoodTweets/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
