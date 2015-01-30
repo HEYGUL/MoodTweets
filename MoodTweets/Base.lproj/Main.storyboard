@@ -29,7 +29,7 @@
         <!--View Controller-->
         <scene sceneID="R5h-YB-UBY">
             <objects>
-                <tableViewController id="WV0-K6-c5r" customClass="ViewController" sceneMemberID="viewController">
+                <tableViewController id="WV0-K6-c5r" customClass="MainViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="cic-oh-fZI">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

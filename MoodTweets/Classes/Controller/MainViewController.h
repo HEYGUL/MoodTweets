@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MainViewController.h
 //  I am a Buffer
 //
 //  Created by Guillaume Lagorce on 17/01/15.
@@ -10,8 +10,6 @@
 #import <UIKit/UIKit.h>
 
 
-@interface ViewController : UITableViewController
+@interface MainViewController : UITableViewController
 
-
-@property(nonatomic, strong) NSArray *iOSAccounts;
 @end

@@ -1,30 +1,32 @@
 //
-//  ViewController.m
+//  MainViewController.m
 //  I am a Buffer
 //
 //  Created by Guillaume Lagorce on 17/01/15.
 //  Copyright (c) 2015 Gl0ub1l. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MainViewController.h"
 #import "TwitterManager.h"
 #import "Tweet.h"
 #import "UIFont+FlatUI.h"
 #import "UIColor+FlatUI.h"
 #import "UITableViewCell+FlatUI.h"
+#import "NaturalLanguageService.h"
 #import <STTwitter/STTwitterAPI.h>
 #import <Accounts/Accounts.h>
 #import <Bolts/Bolts.h>
 
 
-@interface ViewController () <UIViewControllerTransitioningDelegate, UIActionSheetDelegate, UITableViewDataSource>
+@interface MainViewController () <UIViewControllerTransitioningDelegate, UIActionSheetDelegate, UITableViewDataSource>
 
 @property(nonatomic, strong) NSString *username;
 @property(nonatomic, strong) NSArray *tweets;
+@property(nonatomic, strong) NSArray *iOSAccounts;
 
 @end
 
-@implementation ViewController
+@implementation MainViewController
 
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -53,30 +55,30 @@
 - (void)loadData
 {
     BFTask *twitterTask = [[TwitterManager sharedManager] accessTwitterAccounts];
-    [[[twitterTask continueWithExecutor:[BFExecutor mainThreadExecutor]
-                       withSuccessBlock:^id(BFTask *task)
-                       {
-                           self.iOSAccounts = task.result;
+    [[[[[twitterTask continueWithExecutor:[BFExecutor mainThreadExecutor]
+                         withSuccessBlock:^id(BFTask *task)
+                         {
+                             self.iOSAccounts = task.result;
 
-                           if ([_iOSAccounts count] == 1)
-                           {
-                               ACAccount *account = [self.iOSAccounts lastObject];
-                               return [self loginToTwitterWithAccount:account];
-                           }
-                           else
-                           {
-                               UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Select an account:"
-                                                                                        delegate:self
-                                                                               cancelButtonTitle:@"Cancel"
-                                                                          destructiveButtonTitle:nil otherButtonTitles:nil];
-                               for (ACAccount *account in self.iOSAccounts)
-                               {
-                                   [actionSheet addButtonWithTitle:[NSString stringWithFormat:@"@%@", account.username]];
-                               }
-                               [actionSheet showInView:self.view.window];
-                           }
-                           return task;
-                       }]
+                             if ([_iOSAccounts count] == 1)
+                             {
+                                 ACAccount *account = [self.iOSAccounts lastObject];
+                                 return [self loginToTwitterWithAccount:account];
+                             }
+                             else
+                             {
+                                 UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Select an account:"
+                                                                                          delegate:self
+                                                                                 cancelButtonTitle:@"Cancel"
+                                                                            destructiveButtonTitle:nil otherButtonTitles:nil];
+                                 for (ACAccount *account in self.iOSAccounts)
+                                 {
+                                     [actionSheet addButtonWithTitle:[NSString stringWithFormat:@"@%@", account.username]];
+                                 }
+                                 [actionSheet showInView:self.view.window];
+                             }
+                             return task;
+                         }]
             continueWithSuccessBlock:^id(BFTask *task)
             {
                 self.username = task.result;
@@ -88,6 +90,24 @@
                        {
                            self.tweets = task.result;
                            [self refreshView];
+                           if (task.error)
+                           {
+                               [self manageError:task.error];
+                           }
+                           return task;
+                       }]
+            continueWithSuccessBlock:^id(BFTask *task)
+            {
+                NSMutableArray *tasks = [NSMutableArray array];
+                for (Tweet *tweet in self.tweets)
+                {
+                    [tasks addObject:[[NaturalLanguageService new] moodForTweet:tweet]];
+                }
+                return [BFTask taskForCompletionOfAllTasks:tasks];
+            }]
+            continueWithExecutor:[BFExecutor mainThreadExecutor]
+                       withBlock:^id(BFTask *task)
+                       {
                            if (task.error)
                            {
                                [self manageError:task.error];
@@ -148,8 +168,7 @@
     cell.separatorHeight = 0.f;
 
     Tweet *tweet = self.tweets[(NSUInteger) indexPath.row];
-
-    cell.textLabel.text = tweet.text;
+    cell.textLabel.text = [NSString stringWithFormat:@"%f - %@", tweet.moodScore, tweet.text];
     cell.textLabel.font = [UIFont boldFlatFontOfSize:16];
 
     return cell;

@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1151E8FC7C24129F15DDA63A /* JSONValueTransformer+CustomTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1151E5856C65A38B9B982B2E /* JSONValueTransformer+CustomTransformer.m */; };
+		1151EED94EDC718E4132C5E5 /* NaturalLanguageService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1151E6DD568908D8D28B0C49 /* NaturalLanguageService.m */; };
 		70B3A6AA7D2AFFB3021D24E5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FF868C0BBE3347EC49F961E /* libPods.a */; };
 		A81261B71A7C317C00167FD5 /* MoodTweetsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B8808F1A7C2F4400DA4252 /* MoodTweetsTests.m */; };
 		A81261BD1A7C31B100167FD5 /* Animator.m in Sources */ = {isa = PBXBuildFile; fileRef = A81261BA1A7C31B100167FD5 /* Animator.m */; };
 		A81261BE1A7C31B100167FD5 /* NavigationControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A81261BC1A7C31B100167FD5 /* NavigationControllerDelegate.m */; };
 		A81261C21A7C385400167FD5 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A81261C01A7C385400167FD5 /* Crashlytics.framework */; };
 		A81261C31A7C385400167FD5 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A81261C11A7C385400167FD5 /* Fabric.framework */; };
+		A81261C41A7C486800167FD5 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8B880901A7C2F4400DA4252 /* Info.plist */; };
 		A825001D1A7564D6002EF323 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A825001C1A7564D6002EF323 /* Accounts.framework */; };
 		A8B880911A7C2F4400DA4252 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = A8B8806B1A7C2F4400DA4252 /* Podfile */; };
 		A8B880921A7C2F4400DA4252 /* Code.png in Resources */ = {isa = PBXBuildFile; fileRef = A8B8806E1A7C2F4400DA4252 /* Code.png */; };
@@ -23,12 +26,10 @@
 		A8B880971A7C2F4400DA4252 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8B880731A7C2F4400DA4252 /* LaunchScreen.xib */; };
 		A8B880981A7C2F4400DA4252 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8B880751A7C2F4400DA4252 /* Main.storyboard */; };
 		A8B880991A7C2F4400DA4252 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B8807A1A7C2F4400DA4252 /* AppDelegate.m */; };
-		A8B8809C1A7C2F4400DA4252 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B880821A7C2F4400DA4252 /* ViewController.m */; };
+		A8B8809C1A7C2F4400DA4252 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B880821A7C2F4400DA4252 /* MainViewController.m */; };
 		A8B8809D1A7C2F4400DA4252 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B880851A7C2F4400DA4252 /* Tweet.m */; };
 		A8B8809E1A7C2F4400DA4252 /* TwitterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B880881A7C2F4400DA4252 /* TwitterManager.m */; };
-		A8B880A01A7C2F4400DA4252 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8B8808C1A7C2F4400DA4252 /* Info.plist */; };
 		A8B880A11A7C2F4400DA4252 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B8808D1A7C2F4400DA4252 /* main.m */; };
-		A8B880A31A7C2F4400DA4252 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8B880901A7C2F4400DA4252 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +43,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1151E0712AE37383E446A61D /* JSONValueTransformer+CustomTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONValueTransformer+CustomTransformer.h"; sourceTree = "<group>"; };
+		1151E5856C65A38B9B982B2E /* JSONValueTransformer+CustomTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONValueTransformer+CustomTransformer.m"; sourceTree = "<group>"; };
 		1151E5E5F9F5E1AAB3BF01BA /* MoodTweets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodTweets.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1151E6DD568908D8D28B0C49 /* NaturalLanguageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NaturalLanguageService.m; sourceTree = "<group>"; };
+		1151EDD5DC04930029D952E3 /* NaturalLanguageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NaturalLanguageService.h; sourceTree = "<group>"; };
 		1151EEA0B387E6CB96066091 /* MoodTweetsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoodTweetsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		19F109530D1E49C54F16588E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		2FF868C0BBE3347EC49F961E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,8 +70,8 @@
 		A8B880761A7C2F4400DA4252 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A8B880791A7C2F4400DA4252 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A8B8807A1A7C2F4400DA4252 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A8B880811A7C2F4400DA4252 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		A8B880821A7C2F4400DA4252 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A8B880811A7C2F4400DA4252 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		A8B880821A7C2F4400DA4252 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		A8B880841A7C2F4400DA4252 /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
 		A8B880851A7C2F4400DA4252 /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
 		A8B880871A7C2F4400DA4252 /* TwitterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterManager.h; sourceTree = "<group>"; };
@@ -118,6 +123,15 @@
 				1151EEA0B387E6CB96066091 /* MoodTweetsTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		1151EB2F25FD54DCF8BD2D12 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				1151E6DD568908D8D28B0C49 /* NaturalLanguageService.m */,
+				1151EDD5DC04930029D952E3 /* NaturalLanguageService.h */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		27A466E349FCAD4F971D89DD /* Frameworks */ = {
@@ -183,6 +197,7 @@
 				A8B880831A7C2F4400DA4252 /* Model */,
 				A8B880861A7C2F4400DA4252 /* Manager */,
 				A8B8808B1A7C2F4400DA4252 /* Views */,
+				1151EB2F25FD54DCF8BD2D12 /* Service */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -202,8 +217,8 @@
 				A81261B81A7C31B100167FD5 /* Navigation */,
 				A8B880731A7C2F4400DA4252 /* LaunchScreen.xib */,
 				A8B880751A7C2F4400DA4252 /* Main.storyboard */,
-				A8B880811A7C2F4400DA4252 /* ViewController.h */,
-				A8B880821A7C2F4400DA4252 /* ViewController.m */,
+				A8B880811A7C2F4400DA4252 /* MainViewController.h */,
+				A8B880821A7C2F4400DA4252 /* MainViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -213,6 +228,8 @@
 			children = (
 				A8B880841A7C2F4400DA4252 /* Tweet.h */,
 				A8B880851A7C2F4400DA4252 /* Tweet.m */,
+				1151E5856C65A38B9B982B2E /* JSONValueTransformer+CustomTransformer.m */,
+				1151E0712AE37383E446A61D /* JSONValueTransformer+CustomTransformer.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -320,14 +337,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8B880A01A7C2F4400DA4252 /* Info.plist in Resources */,
 				A8B880921A7C2F4400DA4252 /* Code.png in Resources */,
 				A8B880961A7C2F4400DA4252 /* sad.jpg in Resources */,
 				A8B880931A7C2F4400DA4252 /* happy.jpeg in Resources */,
 				A8B880941A7C2F4400DA4252 /* Images.xcassets in Resources */,
 				A8B880981A7C2F4400DA4252 /* Main.storyboard in Resources */,
 				A8B880911A7C2F4400DA4252 /* Podfile in Resources */,
-				A8B880A31A7C2F4400DA4252 /* Info.plist in Resources */,
 				A8B880951A7C2F4400DA4252 /* Lato-Regular.ttf in Resources */,
 				A8B880971A7C2F4400DA4252 /* LaunchScreen.xib in Resources */,
 			);
@@ -337,6 +352,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A81261C41A7C486800167FD5 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,8 +423,10 @@
 				A81261BD1A7C31B100167FD5 /* Animator.m in Sources */,
 				A8B880991A7C2F4400DA4252 /* AppDelegate.m in Sources */,
 				A8B8809E1A7C2F4400DA4252 /* TwitterManager.m in Sources */,
-				A8B8809C1A7C2F4400DA4252 /* ViewController.m in Sources */,
+				A8B8809C1A7C2F4400DA4252 /* MainViewController.m in Sources */,
 				A81261BE1A7C31B100167FD5 /* NavigationControllerDelegate.m in Sources */,
+				1151EED94EDC718E4132C5E5 /* NaturalLanguageService.m in Sources */,
+				1151E8FC7C24129F15DDA63A /* JSONValueTransformer+CustomTransformer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

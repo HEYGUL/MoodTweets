@@ -5,6 +5,8 @@
 
 #import "Tweet.h"
 
+NSString *const kNeutralMoodString = @"neutral";
+NSString *const kPositiveMoodString = @"positive";
 
 @implementation Tweet
 
@@ -19,6 +21,23 @@
 + (JSONKeyMapper *)keyMapper
 {
     return [JSONKeyMapper mapperFromUnderscoreCaseToCamelCase];
+}
+
+/********************************************************************************/
+#pragma mark - Public Methods
+
++ (TWMoodType)moodTypeFromSentimentText:(NSString *)sentimentText
+{
+    TWMoodType moodType = TWMoodNegative;
+    if([sentimentText isEqualToString:kNeutralMoodString])
+    {
+        moodType = TWMoodNeutral;
+    }
+    else if([sentimentText isEqualToString:kPositiveMoodString])
+    {
+        moodType = TWMoodPositive;
+    }
+    return moodType;
 }
 
 @end

@@ -4,7 +4,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreGraphics/CGBase.h>
 #import "JSONModel.h"
 
 typedef NS_ENUM(NSInteger, TWMoodType)
@@ -18,7 +17,8 @@ typedef NS_ENUM(NSInteger, TWMoodType)
 
 @property(nonatomic, strong) NSString *text;
 @property(nonatomic, strong) NSDate *createdAt;
-@property(nonatomic, assign) CGFloat moodScore;
+@property(nonatomic, assign) float moodScore;
 @property(nonatomic, assign) TWMoodType mood;
 
++ (TWMoodType)moodTypeFromSentimentText:(NSString *)sentimentText;
 @end
