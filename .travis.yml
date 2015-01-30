@@ -1,2 +1,4 @@
 language: objective-c
-
+script:
+  - xctool -workspace MoodTweets.xcworkspace -scheme MoodTweets -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+  - xctool test -workspace MoodTweets.xcworkspace -scheme MoodTweetsTests -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
