@@ -1,0 +1,589 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		70B3A6AA7D2AFFB3021D24E5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FF868C0BBE3347EC49F961E /* libPods.a */; };
+		A81261B71A7C317C00167FD5 /* MoodTweetsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B8808F1A7C2F4400DA4252 /* MoodTweetsTests.m */; };
+		A81261BD1A7C31B100167FD5 /* Animator.m in Sources */ = {isa = PBXBuildFile; fileRef = A81261BA1A7C31B100167FD5 /* Animator.m */; };
+		A81261BE1A7C31B100167FD5 /* NavigationControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A81261BC1A7C31B100167FD5 /* NavigationControllerDelegate.m */; };
+		A825001D1A7564D6002EF323 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A825001C1A7564D6002EF323 /* Accounts.framework */; };
+		A8B880911A7C2F4400DA4252 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = A8B8806B1A7C2F4400DA4252 /* Podfile */; };
+		A8B880921A7C2F4400DA4252 /* Code.png in Resources */ = {isa = PBXBuildFile; fileRef = A8B8806E1A7C2F4400DA4252 /* Code.png */; };
+		A8B880931A7C2F4400DA4252 /* happy.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A8B8806F1A7C2F4400DA4252 /* happy.jpeg */; };
+		A8B880941A7C2F4400DA4252 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8B880701A7C2F4400DA4252 /* Images.xcassets */; };
+		A8B880951A7C2F4400DA4252 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8B880711A7C2F4400DA4252 /* Lato-Regular.ttf */; };
+		A8B880961A7C2F4400DA4252 /* sad.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8B880721A7C2F4400DA4252 /* sad.jpg */; };
+		A8B880971A7C2F4400DA4252 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8B880731A7C2F4400DA4252 /* LaunchScreen.xib */; };
+		A8B880981A7C2F4400DA4252 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8B880751A7C2F4400DA4252 /* Main.storyboard */; };
+		A8B880991A7C2F4400DA4252 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B8807A1A7C2F4400DA4252 /* AppDelegate.m */; };
+		A8B8809C1A7C2F4400DA4252 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B880821A7C2F4400DA4252 /* ViewController.m */; };
+		A8B8809D1A7C2F4400DA4252 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B880851A7C2F4400DA4252 /* Tweet.m */; };
+		A8B8809E1A7C2F4400DA4252 /* TwitterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B880881A7C2F4400DA4252 /* TwitterManager.m */; };
+		A8B880A01A7C2F4400DA4252 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8B8808C1A7C2F4400DA4252 /* Info.plist */; };
+		A8B880A11A7C2F4400DA4252 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B8808D1A7C2F4400DA4252 /* main.m */; };
+		A8B880A31A7C2F4400DA4252 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8B880901A7C2F4400DA4252 /* Info.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1151E6DF7AA76F3165BE4D8C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1151E90419BAEB7241090624 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1151E6C65E7FB69321C5A470;
+			remoteInfo = "I am a Buffer";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1151E5E5F9F5E1AAB3BF01BA /* MoodTweets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodTweets.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1151EEA0B387E6CB96066091 /* MoodTweetsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoodTweetsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		19F109530D1E49C54F16588E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		2FF868C0BBE3347EC49F961E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		81028C57E02D67B12EF601B3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		A81261B51A7C316700167FD5 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		A81261B91A7C31B100167FD5 /* Animator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animator.h; sourceTree = "<group>"; };
+		A81261BA1A7C31B100167FD5 /* Animator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Animator.m; sourceTree = "<group>"; };
+		A81261BB1A7C31B100167FD5 /* NavigationControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationControllerDelegate.h; sourceTree = "<group>"; };
+		A81261BC1A7C31B100167FD5 /* NavigationControllerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationControllerDelegate.m; sourceTree = "<group>"; };
+		A825001C1A7564D6002EF323 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		A8B8806B1A7C2F4400DA4252 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		A8B8806E1A7C2F4400DA4252 /* Code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Code.png; sourceTree = "<group>"; };
+		A8B8806F1A7C2F4400DA4252 /* happy.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = happy.jpeg; sourceTree = "<group>"; };
+		A8B880701A7C2F4400DA4252 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A8B880711A7C2F4400DA4252 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		A8B880721A7C2F4400DA4252 /* sad.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sad.jpg; sourceTree = "<group>"; };
+		A8B880741A7C2F4400DA4252 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		A8B880761A7C2F4400DA4252 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A8B880791A7C2F4400DA4252 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A8B8807A1A7C2F4400DA4252 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A8B880811A7C2F4400DA4252 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A8B880821A7C2F4400DA4252 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A8B880841A7C2F4400DA4252 /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
+		A8B880851A7C2F4400DA4252 /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
+		A8B880871A7C2F4400DA4252 /* TwitterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterManager.h; sourceTree = "<group>"; };
+		A8B880881A7C2F4400DA4252 /* TwitterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterManager.m; sourceTree = "<group>"; };
+		A8B8808C1A7C2F4400DA4252 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A8B8808D1A7C2F4400DA4252 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A8B8808F1A7C2F4400DA4252 /* MoodTweetsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoodTweetsTests.m; sourceTree = "<group>"; };
+		A8B880901A7C2F4400DA4252 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1151EABA4F02F0829F222E68 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1151EF08ED85E7150574F6F1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A825001D1A7564D6002EF323 /* Accounts.framework in Frameworks */,
+				70B3A6AA7D2AFFB3021D24E5 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1151E13851E12737A818F831 = {
+			isa = PBXGroup;
+			children = (
+				A8B8806B1A7C2F4400DA4252 /* Podfile */,
+				A8B8806C1A7C2F4400DA4252 /* MoodTweets */,
+				A8B8808E1A7C2F4400DA4252 /* MoodTweetsTests */,
+				1151E67A5EED5C2CE12BFD65 /* Products */,
+				961D585E7DDF3708A584B692 /* Pods */,
+				27A466E349FCAD4F971D89DD /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1151E67A5EED5C2CE12BFD65 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1151E5E5F9F5E1AAB3BF01BA /* MoodTweets.app */,
+				1151EEA0B387E6CB96066091 /* MoodTweetsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		27A466E349FCAD4F971D89DD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A81261B51A7C316700167FD5 /* SenTestingKit.framework */,
+				A825001C1A7564D6002EF323 /* Accounts.framework */,
+				2FF868C0BBE3347EC49F961E /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		961D585E7DDF3708A584B692 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				19F109530D1E49C54F16588E /* Pods.debug.xcconfig */,
+				81028C57E02D67B12EF601B3 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A81261B81A7C31B100167FD5 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				A81261B91A7C31B100167FD5 /* Animator.h */,
+				A81261BA1A7C31B100167FD5 /* Animator.m */,
+				A81261BB1A7C31B100167FD5 /* NavigationControllerDelegate.h */,
+				A81261BC1A7C31B100167FD5 /* NavigationControllerDelegate.m */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		A8B8806C1A7C2F4400DA4252 /* MoodTweets */ = {
+			isa = PBXGroup;
+			children = (
+				A8B8806D1A7C2F4400DA4252 /* Assets */,
+				A8B880771A7C2F4400DA4252 /* Classes */,
+				A8B8808C1A7C2F4400DA4252 /* Info.plist */,
+				A8B8808D1A7C2F4400DA4252 /* main.m */,
+			);
+			path = MoodTweets;
+			sourceTree = "<group>";
+		};
+		A8B8806D1A7C2F4400DA4252 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				A8B8806E1A7C2F4400DA4252 /* Code.png */,
+				A8B8806F1A7C2F4400DA4252 /* happy.jpeg */,
+				A8B880701A7C2F4400DA4252 /* Images.xcassets */,
+				A8B880711A7C2F4400DA4252 /* Lato-Regular.ttf */,
+				A8B880721A7C2F4400DA4252 /* sad.jpg */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		A8B880771A7C2F4400DA4252 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A8B880781A7C2F4400DA4252 /* Application */,
+				A8B8807B1A7C2F4400DA4252 /* Controller */,
+				A8B880831A7C2F4400DA4252 /* Model */,
+				A8B880861A7C2F4400DA4252 /* Manager */,
+				A8B8808B1A7C2F4400DA4252 /* Views */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		A8B880781A7C2F4400DA4252 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				A8B880791A7C2F4400DA4252 /* AppDelegate.h */,
+				A8B8807A1A7C2F4400DA4252 /* AppDelegate.m */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		A8B8807B1A7C2F4400DA4252 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A81261B81A7C31B100167FD5 /* Navigation */,
+				A8B880731A7C2F4400DA4252 /* LaunchScreen.xib */,
+				A8B880751A7C2F4400DA4252 /* Main.storyboard */,
+				A8B880811A7C2F4400DA4252 /* ViewController.h */,
+				A8B880821A7C2F4400DA4252 /* ViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A8B880831A7C2F4400DA4252 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A8B880841A7C2F4400DA4252 /* Tweet.h */,
+				A8B880851A7C2F4400DA4252 /* Tweet.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A8B880861A7C2F4400DA4252 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				A8B880871A7C2F4400DA4252 /* TwitterManager.h */,
+				A8B880881A7C2F4400DA4252 /* TwitterManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		A8B8808B1A7C2F4400DA4252 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A8B8808E1A7C2F4400DA4252 /* MoodTweetsTests */ = {
+			isa = PBXGroup;
+			children = (
+				A8B8808F1A7C2F4400DA4252 /* MoodTweetsTests.m */,
+				A8B880901A7C2F4400DA4252 /* Info.plist */,
+			);
+			path = MoodTweetsTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1151E6C65E7FB69321C5A470 /* MoodTweets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1151EB8DBA8E8F06144F3555 /* Build configuration list for PBXNativeTarget "MoodTweets" */;
+			buildPhases = (
+				77969B1BF2D1C06359360800 /* Check Pods Manifest.lock */,
+				1151E6EB47C2D7CB96BAADC5 /* Sources */,
+				1151EF08ED85E7150574F6F1 /* Frameworks */,
+				1151E22E8B04711A6B27AEA3 /* Resources */,
+				A5F2B9156ADDAA031C389FFC /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MoodTweets;
+			productName = "I am a Buffer";
+			productReference = 1151E5E5F9F5E1AAB3BF01BA /* MoodTweets.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1151E8D510E16785F499671F /* MoodTweetsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1151E0EF6DEF0865825760FC /* Build configuration list for PBXNativeTarget "MoodTweetsTests" */;
+			buildPhases = (
+				1151E38149F71086959D332A /* Sources */,
+				1151EABA4F02F0829F222E68 /* Frameworks */,
+				1151E69C9C700CCFB6F08BDF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1151EB5447E24265BC0853D0 /* PBXTargetDependency */,
+			);
+			name = MoodTweetsTests;
+			productName = "I am a BufferTests";
+			productReference = 1151EEA0B387E6CB96066091 /* MoodTweetsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1151E90419BAEB7241090624 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = Gl0ub1l;
+				TargetAttributes = {
+					1151E8D510E16785F499671F = {
+						TestTargetID = 1151E6C65E7FB69321C5A470;
+					};
+				};
+			};
+			buildConfigurationList = 1151E3C71994C6A6601ECFF8 /* Build configuration list for PBXProject "MoodTweets" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1151E13851E12737A818F831;
+			productRefGroup = 1151E67A5EED5C2CE12BFD65 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1151E6C65E7FB69321C5A470 /* MoodTweets */,
+				1151E8D510E16785F499671F /* MoodTweetsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1151E22E8B04711A6B27AEA3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8B880A01A7C2F4400DA4252 /* Info.plist in Resources */,
+				A8B880921A7C2F4400DA4252 /* Code.png in Resources */,
+				A8B880961A7C2F4400DA4252 /* sad.jpg in Resources */,
+				A8B880931A7C2F4400DA4252 /* happy.jpeg in Resources */,
+				A8B880941A7C2F4400DA4252 /* Images.xcassets in Resources */,
+				A8B880981A7C2F4400DA4252 /* Main.storyboard in Resources */,
+				A8B880911A7C2F4400DA4252 /* Podfile in Resources */,
+				A8B880A31A7C2F4400DA4252 /* Info.plist in Resources */,
+				A8B880951A7C2F4400DA4252 /* Lato-Regular.ttf in Resources */,
+				A8B880971A7C2F4400DA4252 /* LaunchScreen.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1151E69C9C700CCFB6F08BDF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		77969B1BF2D1C06359360800 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A5F2B9156ADDAA031C389FFC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1151E38149F71086959D332A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A81261B71A7C317C00167FD5 /* MoodTweetsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1151E6EB47C2D7CB96BAADC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8B8809D1A7C2F4400DA4252 /* Tweet.m in Sources */,
+				A8B880A11A7C2F4400DA4252 /* main.m in Sources */,
+				A81261BD1A7C31B100167FD5 /* Animator.m in Sources */,
+				A8B880991A7C2F4400DA4252 /* AppDelegate.m in Sources */,
+				A8B8809E1A7C2F4400DA4252 /* TwitterManager.m in Sources */,
+				A8B8809C1A7C2F4400DA4252 /* ViewController.m in Sources */,
+				A81261BE1A7C31B100167FD5 /* NavigationControllerDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1151EB5447E24265BC0853D0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1151E6C65E7FB69321C5A470 /* MoodTweets */;
+			targetProxy = 1151E6DF7AA76F3165BE4D8C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A8B880731A7C2F4400DA4252 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A8B880741A7C2F4400DA4252 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		A8B880751A7C2F4400DA4252 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A8B880761A7C2F4400DA4252 /* Base */,
+			);
+			name = Main.storyboard;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1151E07C02C9F8DA1D0E87A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19F109530D1E49C54F16588E /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "$(SRCROOT)/MoodTweets/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
+			};
+			name = Debug;
+		};
+		1151E4279BEDEB86CBD5B94A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				INFOPLIST_FILE = MoodTweetsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoodTweets.app/MoodTweets";
+			};
+			name = Release;
+		};
+		1151E43DB685F1A72E2D89BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				INFOPLIST_FILE = MoodTweetsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoodTweets.app/MoodTweets";
+			};
+			name = Debug;
+		};
+		1151E8AC0875E699BA980702 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1151E8AD5AFAADA1ACBD5231 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81028C57E02D67B12EF601B3 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "$(SRCROOT)/MoodTweets/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
+			};
+			name = Release;
+		};
+		1151EADA5458B89C57D79634 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1151E0EF6DEF0865825760FC /* Build configuration list for PBXNativeTarget "MoodTweetsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1151E43DB685F1A72E2D89BF /* Debug */,
+				1151E4279BEDEB86CBD5B94A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1151E3C71994C6A6601ECFF8 /* Build configuration list for PBXProject "MoodTweets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1151E8AC0875E699BA980702 /* Debug */,
+				1151EADA5458B89C57D79634 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1151EB8DBA8E8F06144F3555 /* Build configuration list for PBXNativeTarget "MoodTweets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1151E07C02C9F8DA1D0E87A4 /* Debug */,
+				1151E8AD5AFAADA1ACBD5231 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1151E90419BAEB7241090624 /* Project object */;
+}
