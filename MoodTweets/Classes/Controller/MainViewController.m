@@ -14,10 +14,13 @@
 #import "UITableViewCell+FlatUI.h"
 #import "NaturalLanguageService.h"
 #import "NSMutableArray+Shuffle.h"
+#import "MoodTableViewCell.h"
 #import <STTwitter/STTwitterAPI.h>
 #import <Accounts/Accounts.h>
 #import <Bolts/Bolts.h>
 
+
+NSString *const kMoodCellIdentifier = @"moodCellIdentifier";
 
 @interface MainViewController () <UIViewControllerTransitioningDelegate, UIActionSheetDelegate, UITableViewDataSource>
 
@@ -42,9 +45,8 @@
 
 - (void)configureView
 {
-    self.view.backgroundColor = [UIColor cloudsColor];
-    self.tableView.separatorColor = [UIColor cloudsColor];
     self.tableView.backgroundColor = [UIColor cloudsColor];
+    self.tableView.separatorColor = [UIColor clearColor];
     self.tableView.backgroundView = nil;
 }
 
@@ -58,7 +60,7 @@
     NSInteger row = [self.tweets indexOfObject:tweet];;
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
     [self.tableView reloadRowsAtIndexPaths:@[indexPath]
-                          withRowAnimation:UITableViewRowAnimationLeft];
+                          withRowAnimation:UITableViewRowAnimationNone];
 }
 
 - (void)loadData
@@ -186,48 +188,18 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifier"];
-    UIRectCorner corners = [self cornersForTableView:tableView indexPath:indexPath];
-    [cell configureFlatCellWithColor:[UIColor greenSeaColor]
-                       selectedColor:[UIColor cloudsColor]
-                     roundingCorners:corners];
-    cell.separatorHeight = 0.f;
-
+    MoodTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kMoodCellIdentifier];
+    
     Tweet *tweet = self.tweets[(NSUInteger) indexPath.row];
-    if (tweet.mood != TWMoodUndefined)
-    {
-        cell.textLabel.text = [NSString stringWithFormat:@"%f - %@", tweet.moodScore, [tweet moodToText]];
-    }
-    cell.textLabel.font = [UIFont boldFlatFontOfSize:16];
+    cell.tweet = tweet;
+    [cell displayMood];
 
     return cell;
 }
 
-- (UIRectCorner)cornersForTableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath
-{
-    UIRectCorner corners = 0;
-    if (tableView.style == UITableViewStyleGrouped)
-    {
-        if ([tableView numberOfRowsInSection:indexPath.section] == 1)
-        {
-            corners = UIRectCornerAllCorners;
-        }
-        else if (indexPath.row == 0)
-        {
-            corners = UIRectCornerTopLeft | UIRectCornerTopRight;
-        }
-        else if (indexPath.row == [tableView numberOfRowsInSection:indexPath.section] - 1)
-        {
-            corners = UIRectCornerBottomLeft | UIRectCornerBottomRight;
-        }
-    }
-    return corners;
-}
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Tweet *tweet = self.tweets[(NSUInteger) indexPath.row];
-    return tweet.mood == TWMoodUndefined ? 0.f : 44.f;
+    return 44.f;
 }
 
 @end

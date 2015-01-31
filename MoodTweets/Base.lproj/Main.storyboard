@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lm4-gu-Xv2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -26,20 +27,47 @@
             </objects>
             <point key="canvasLocation" x="-333" y="489"/>
         </scene>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="R5h-YB-UBY">
             <objects>
                 <tableViewController id="WV0-K6-c5r" customClass="MainViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="cic-oh-fZI">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellIdentifier" id="I3O-74-VSF">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="moodCellIdentifier" rowHeight="44" id="I3O-74-VSF" customClass="MoodTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I3O-74-VSF" id="JGB-4d-4Jd">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R63-hT-pK3" userLabel="GraphView">
+                                            <rect key="frame" x="225" y="2" width="150" height="39"/>
+                                            <color key="backgroundColor" red="0.79797757059999996" green="0.38337953629999999" blue="0.64635836690000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="150" id="FfW-2i-QbA"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="R63-hT-pK3" firstAttribute="centerX" secondItem="JGB-4d-4Jd" secondAttribute="centerX" id="6PZ-LD-OeR"/>
+                                        <constraint firstAttribute="centerX" secondItem="R63-hT-pK3" secondAttribute="centerX" id="AJb-kr-c3k"/>
+                                        <constraint firstItem="R63-hT-pK3" firstAttribute="leading" secondItem="JGB-4d-4Jd" secondAttribute="leadingMargin" constant="28" id="EUY-AO-ecC"/>
+                                        <constraint firstAttribute="centerY" secondItem="R63-hT-pK3" secondAttribute="centerY" id="Uwa-il-lc2"/>
+                                        <constraint firstItem="R63-hT-pK3" firstAttribute="top" secondItem="JGB-4d-4Jd" secondAttribute="top" constant="2" id="ndb-s7-oPY"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="6PZ-LD-OeR"/>
+                                            <exclude reference="EUY-AO-ecC"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="graphView" destination="R63-hT-pK3" id="Jgp-2N-xpV"/>
+                                    <outlet property="graphViewWidthConstraint" destination="FfW-2i-QbA" id="ki8-rz-4kR"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -50,7 +78,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IbB-EI-S0e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="361" y="489"/>
+            <point key="canvasLocation" x="361" y="488"/>
         </scene>
     </scenes>
 </document>

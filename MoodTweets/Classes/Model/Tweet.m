@@ -72,4 +72,5 @@ NSString *const kUndefinedMoodString = @"undefined";
 
     return sentimentText;
 }
+
 @end
