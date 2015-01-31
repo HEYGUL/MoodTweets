@@ -194,11 +194,7 @@
     cell.separatorHeight = 0.f;
 
     Tweet *tweet = self.tweets[(NSUInteger) indexPath.row];
-    if (tweet.mood == TWMoodUndefined)
-    {
-        cell.textLabel.text = [NSString stringWithFormat:@"Undefined - %@", tweet.text];
-    }
-    else
+    if (tweet.mood != TWMoodUndefined)
     {
         cell.textLabel.text = [NSString stringWithFormat:@"%f - %@", tweet.moodScore, [tweet moodToText]];
     }
