@@ -7,6 +7,8 @@
 
 NSString *const kNeutralMoodString = @"neutral";
 NSString *const kPositiveMoodString = @"positive";
+NSString *const kNegativeMoodString = @"negative";
+NSString *const kUndefinedMoodString = @"undefined";
 
 @implementation Tweet
 
@@ -28,16 +30,46 @@ NSString *const kPositiveMoodString = @"positive";
 
 + (TWMoodType)moodTypeFromSentimentText:(NSString *)sentimentText
 {
-    TWMoodType moodType = TWMoodNegative;
-    if([sentimentText isEqualToString:kNeutralMoodString])
+    TWMoodType moodType = TWMoodUndefined;
+    if ([sentimentText isEqualToString:kNeutralMoodString])
     {
         moodType = TWMoodNeutral;
     }
-    else if([sentimentText isEqualToString:kPositiveMoodString])
+    else if ([sentimentText isEqualToString:kPositiveMoodString])
     {
         moodType = TWMoodPositive;
     }
+    else if ([sentimentText isEqualToString:kNegativeMoodString])
+    {
+        moodType = TWMoodNegative;
+    }
+
     return moodType;
 }
 
+- (NSString *)moodToText
+{
+    NSString *sentimentText = kUndefinedMoodString;
+
+    switch (self.mood)
+    {
+        case TWMoodNegative:
+            sentimentText = kNegativeMoodString;
+            break;
+
+        case TWMoodPositive:
+            sentimentText = kPositiveMoodString;
+            break;
+
+
+        case TWMoodNeutral:
+            sentimentText = kNeutralMoodString;
+            break;
+
+        default:
+            break;
+    }
+
+    return sentimentText;
+}
 @end

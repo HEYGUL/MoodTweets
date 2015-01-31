@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1151E08651E0A55FBB47EC3C /* NSMutableArray+Shuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1151EFD31707D3DD75680B81 /* NSMutableArray+Shuffle.m */; };
 		1151E8FC7C24129F15DDA63A /* JSONValueTransformer+CustomTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1151E5856C65A38B9B982B2E /* JSONValueTransformer+CustomTransformer.m */; };
 		1151EED94EDC718E4132C5E5 /* NaturalLanguageService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1151E6DD568908D8D28B0C49 /* NaturalLanguageService.m */; };
 		70B3A6AA7D2AFFB3021D24E5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FF868C0BBE3347EC49F961E /* libPods.a */; };
@@ -49,6 +50,8 @@
 		1151E6DD568908D8D28B0C49 /* NaturalLanguageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NaturalLanguageService.m; sourceTree = "<group>"; };
 		1151EDD5DC04930029D952E3 /* NaturalLanguageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NaturalLanguageService.h; sourceTree = "<group>"; };
 		1151EEA0B387E6CB96066091 /* MoodTweetsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoodTweetsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1151EED4B2C7467252EB7C28 /* NSMutableArray+Shuffle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMutableArray+Shuffle.h"; path = "Classes/Helpers/NSMutableArray+Shuffle.h"; sourceTree = SOURCE_ROOT; };
+		1151EFD31707D3DD75680B81 /* NSMutableArray+Shuffle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+Shuffle.m"; path = "Classes/Helpers/NSMutableArray+Shuffle.m"; sourceTree = SOURCE_ROOT; };
 		19F109530D1E49C54F16588E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		2FF868C0BBE3347EC49F961E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		81028C57E02D67B12EF601B3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -134,6 +137,15 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		1151EFE0A1E1AE357762187A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1151EED4B2C7467252EB7C28 /* NSMutableArray+Shuffle.h */,
+				1151EFD31707D3DD75680B81 /* NSMutableArray+Shuffle.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		27A466E349FCAD4F971D89DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +210,7 @@
 				A8B880861A7C2F4400DA4252 /* Manager */,
 				A8B8808B1A7C2F4400DA4252 /* Views */,
 				1151EB2F25FD54DCF8BD2D12 /* Service */,
+				1151EFE0A1E1AE357762187A /* Helpers */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -427,6 +440,7 @@
 				A81261BE1A7C31B100167FD5 /* NavigationControllerDelegate.m in Sources */,
 				1151EED94EDC718E4132C5E5 /* NaturalLanguageService.m in Sources */,
 				1151E8FC7C24129F15DDA63A /* JSONValueTransformer+CustomTransformer.m in Sources */,
+				1151E08651E0A55FBB47EC3C /* NSMutableArray+Shuffle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

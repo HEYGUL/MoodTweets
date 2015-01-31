@@ -8,9 +8,10 @@
 
 typedef NS_ENUM(NSInteger, TWMoodType)
 {
-    TWMoodNeutral = 0,
-    TWMoodPositive = 1,
-    TWMoodNegative = 2
+    TWMoodUndefined = 0,
+    TWMoodNeutral,
+    TWMoodPositive,
+    TWMoodNegative
 };
 
 @interface Tweet : JSONModel
@@ -21,4 +22,6 @@ typedef NS_ENUM(NSInteger, TWMoodType)
 @property(nonatomic, assign) TWMoodType mood;
 
 + (TWMoodType)moodTypeFromSentimentText:(NSString *)sentimentText;
+
+- (NSString *)moodToText;
 @end

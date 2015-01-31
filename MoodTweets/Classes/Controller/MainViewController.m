@@ -13,6 +13,7 @@
 #import "UIColor+FlatUI.h"
 #import "UITableViewCell+FlatUI.h"
 #import "NaturalLanguageService.h"
+#import "NSMutableArray+Shuffle.h"
 #import <STTwitter/STTwitterAPI.h>
 #import <Accounts/Accounts.h>
 #import <Bolts/Bolts.h>
@@ -50,6 +51,14 @@
 - (void)refreshView
 {
     [self.tableView reloadData];
+}
+
+- (void)refreshViewForTweet:(Tweet *)tweet
+{
+    NSInteger row = [self.tweets indexOfObject:tweet];;
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath]
+                          withRowAnimation:UITableViewRowAnimationLeft];
 }
 
 - (void)loadData
@@ -99,9 +108,11 @@
             continueWithSuccessBlock:^id(BFTask *task)
             {
                 NSMutableArray *tasks = [NSMutableArray array];
-                for (Tweet *tweet in self.tweets)
+                NSMutableArray *shuffledTweets = [self.tweets mutableCopy];
+                [shuffledTweets shuffle];
+                for (Tweet *tweet in shuffledTweets)
                 {
-                    [tasks addObject:[[NaturalLanguageService new] moodForTweet:tweet]];
+                    [tasks addObject:[self moodForTweet:tweet]];
                 }
                 return [BFTask taskForCompletionOfAllTasks:tasks];
             }]
@@ -115,7 +126,6 @@
                            return task;
                        }];
 }
-
 
 - (BFTask *)loginToTwitterWithAccount:(ACAccount *)account
 {
@@ -135,6 +145,22 @@
 {
     return [[TwitterManager sharedManager] loadTimelineWithUser:self.username];
 }
+
+- (BFTask *)moodForTweet:(Tweet *)tweet
+{
+    return [[[NaturalLanguageService new] moodForTweet:tweet]
+            continueWithExecutor:[BFExecutor mainThreadExecutor]
+                       withBlock:^id(BFTask *task)
+                       {
+                           if (!task.error)
+                           {
+                               [self refreshViewForTweet:tweet];
+                           }
+                           return task;
+                       }];
+}
+
+
 
 /********************************************************************************/
 #pragma mark - UIActionSheetDelegate
@@ -168,7 +194,14 @@
     cell.separatorHeight = 0.f;
 
     Tweet *tweet = self.tweets[(NSUInteger) indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%f - %@", tweet.moodScore, tweet.text];
+    if (tweet.mood == TWMoodUndefined)
+    {
+        cell.textLabel.text = [NSString stringWithFormat:@"Undefined - %@", tweet.text];
+    }
+    else
+    {
+        cell.textLabel.text = [NSString stringWithFormat:@"%f - %@", tweet.moodScore, [tweet moodToText]];
+    }
     cell.textLabel.font = [UIFont boldFlatFontOfSize:16];
 
     return cell;
@@ -193,6 +226,12 @@
         }
     }
     return corners;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Tweet *tweet = self.tweets[(NSUInteger) indexPath.row];
+    return tweet.mood == TWMoodUndefined ? 0.f : 44.f;
 }
 
 @end

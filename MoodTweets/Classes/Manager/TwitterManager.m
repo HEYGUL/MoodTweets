@@ -85,6 +85,7 @@
     BFTaskCompletionSource *source = [BFTaskCompletionSource taskCompletionSource];
     NSString *screenName = [user hasPrefix:@"@"] ? user : [NSString stringWithFormat:@"@%@", user];
     [self.twitterAPI getUserTimelineWithScreenName:screenName
+                                             count:200
                                       successBlock:^(NSArray *statuses)
                                       {
                                           NSArray *tweets = [Tweet arrayOfModelsFromDictionaries:statuses];
