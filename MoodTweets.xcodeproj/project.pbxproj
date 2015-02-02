@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1151E08651E0A55FBB47EC3C /* NSMutableArray+Shuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1151EFD31707D3DD75680B81 /* NSMutableArray+Shuffle.m */; };
 		1151E1138D8D7DE8944445D6 /* Tweet+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1151E41AD42AA2B48243776D /* Tweet+Helpers.m */; };
+		1151E7F1BD3EC844469C49EB /* SmileyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1151EEF610CEA1B311AED5DD /* SmileyView.m */; };
 		1151E8FC7C24129F15DDA63A /* JSONValueTransformer+CustomTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1151E5856C65A38B9B982B2E /* JSONValueTransformer+CustomTransformer.m */; };
 		1151EED94EDC718E4132C5E5 /* NaturalLanguageService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1151E6DD568908D8D28B0C49 /* NaturalLanguageService.m */; };
 		1151EEDF2308E8D901A4DCC9 /* MoodTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1151EC90E0552ABB9F46F0B2 /* MoodTableViewCell.m */; };
@@ -53,10 +54,12 @@
 		1151E5E5F9F5E1AAB3BF01BA /* MoodTweets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodTweets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1151E6DD568908D8D28B0C49 /* NaturalLanguageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NaturalLanguageService.m; sourceTree = "<group>"; };
 		1151E7CFA98306605D97D6C7 /* Tweet+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Tweet+Helpers.h"; path = "Helpers/Tweet+Helpers.h"; sourceTree = "<group>"; };
+		1151E94725DF4627029FA49B /* SmileyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmileyView.h; sourceTree = "<group>"; };
 		1151EC90E0552ABB9F46F0B2 /* MoodTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoodTableViewCell.m; sourceTree = "<group>"; };
 		1151EDD5DC04930029D952E3 /* NaturalLanguageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NaturalLanguageService.h; sourceTree = "<group>"; };
 		1151EEA0B387E6CB96066091 /* MoodTweetsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoodTweetsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1151EED4B2C7467252EB7C28 /* NSMutableArray+Shuffle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMutableArray+Shuffle.h"; path = "Classes/Helpers/NSMutableArray+Shuffle.h"; sourceTree = SOURCE_ROOT; };
+		1151EEF610CEA1B311AED5DD /* SmileyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmileyView.m; sourceTree = "<group>"; };
 		1151EFD31707D3DD75680B81 /* NSMutableArray+Shuffle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+Shuffle.m"; path = "Classes/Helpers/NSMutableArray+Shuffle.m"; sourceTree = SOURCE_ROOT; };
 		19F109530D1E49C54F16588E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		2FF868C0BBE3347EC49F961E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -269,6 +272,8 @@
 			children = (
 				1151EC90E0552ABB9F46F0B2 /* MoodTableViewCell.m */,
 				1151E23DFC9E9928DC1D80E0 /* MoodTableViewCell.h */,
+				1151EEF610CEA1B311AED5DD /* SmileyView.m */,
+				1151E94725DF4627029FA49B /* SmileyView.h */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -453,6 +458,7 @@
 				1151E08651E0A55FBB47EC3C /* NSMutableArray+Shuffle.m in Sources */,
 				1151EEDF2308E8D901A4DCC9 /* MoodTableViewCell.m in Sources */,
 				1151E1138D8D7DE8944445D6 /* Tweet+Helpers.m in Sources */,
+				1151E7F1BD3EC844469C49EB /* SmileyView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

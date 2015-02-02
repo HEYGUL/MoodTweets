@@ -7,15 +7,15 @@
 #import "Tweet.h"
 #import "Tweet+Helpers.h"
 #import "POPSpringAnimation.h"
+#import "SmileyView.h"
 #import <FlatUIKit/FlatUIKit.h>
-#import "NSString+Icons.h"
 
 
 @interface MoodTableViewCell ()
 
 @property(nonatomic, weak) IBOutlet UIView *graphView;
 @property(nonatomic, weak) IBOutlet NSLayoutConstraint *graphViewWidthConstraint;
-@property(nonatomic, strong) CAGradientLayer *gradient;
+@property(nonatomic, weak) IBOutlet SmileyView *smileyView;
 
 @end
 
@@ -38,12 +38,16 @@
         POPSpringAnimation *springAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayoutConstraintConstant];
         springAnimation.springBounciness = 20;
         springAnimation.springSpeed = 20;
-        springAnimation.toValue = @(MAX(20.f,self.tweet.moodScore * 350.f));
+        springAnimation.toValue = @(MAX(30.f,self.tweet.moodScore * 350.f));
         [self.graphViewWidthConstraint pop_addAnimation:springAnimation forKey:@"layoutAnimation"];
-        
-        NSLog(@"%@",[NSString iconStringForEnum:FUIHeart]);
-);
+        self.smileyView.moodScore = self.tweet.moodScore;
+        self.smileyView.hidden = NO;
     }
+    else
+    {
+        self.smileyView.hidden = YES;
+    }
+
 }
 
 @end

@@ -202,4 +202,14 @@ NSString *const kMoodCellIdentifier = @"moodCellIdentifier";
     return 44.f;
 }
 
+/********************************************************************************/
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath]
+                          withRowAnimation:UITableViewRowAnimationNone];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
+
 @end
