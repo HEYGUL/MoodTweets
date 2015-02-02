@@ -18,11 +18,11 @@
 #import <STTwitter/STTwitterAPI.h>
 #import <Accounts/Accounts.h>
 #import <Bolts/Bolts.h>
-
+//#import "HeaderView.h"
 
 NSString *const kMoodCellIdentifier = @"moodCellIdentifier";
 
-@interface MainViewController () <UIViewControllerTransitioningDelegate, UIActionSheetDelegate, UITableViewDataSource>
+@interface MainViewController () <UIViewControllerTransitioningDelegate, UITableViewDataSource>
 
 @property(nonatomic, strong) NSString *username;
 @property(nonatomic, strong) NSArray *tweets;
@@ -31,6 +31,13 @@ NSString *const kMoodCellIdentifier = @"moodCellIdentifier";
 @end
 
 @implementation MainViewController
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    _tweets = nil;
+}
 
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -68,65 +75,63 @@ NSString *const kMoodCellIdentifier = @"moodCellIdentifier";
     BFTask *twitterTask = [[TwitterManager sharedManager] accessTwitterAccounts];
     [[[[[twitterTask continueWithExecutor:[BFExecutor mainThreadExecutor]
                          withSuccessBlock:^id(BFTask *task)
-                         {
-                             self.iOSAccounts = task.result;
-
-                             if ([_iOSAccounts count] == 1)
-                             {
-                                 ACAccount *account = [self.iOSAccounts lastObject];
-                                 return [self loginToTwitterWithAccount:account];
-                             }
-                             else
-                             {
-                                 UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Select an account:"
-                                                                                          delegate:self
-                                                                                 cancelButtonTitle:@"Cancel"
-                                                                            destructiveButtonTitle:nil otherButtonTitles:nil];
-                                 for (ACAccount *account in self.iOSAccounts)
-                                 {
-                                     [actionSheet addButtonWithTitle:[NSString stringWithFormat:@"@%@", account.username]];
-                                 }
-                                 [actionSheet showInView:self.view.window];
-                             }
-                             return task;
-                         }]
-            continueWithSuccessBlock:^id(BFTask *task)
-            {
-                self.username = task.result;
-                [self refreshView];
-                return [self loadTimeline];
-            }]
-            continueWithExecutor:[BFExecutor mainThreadExecutor]
-                       withBlock:^id(BFTask *task)
-                       {
-                           self.tweets = task.result;
-                           [self refreshView];
-                           if (task.error)
-                           {
-                               [self manageError:task.error];
-                           }
-                           return task;
-                       }]
-            continueWithSuccessBlock:^id(BFTask *task)
-            {
-                NSMutableArray *tasks = [NSMutableArray array];
-                NSMutableArray *shuffledTweets = [self.tweets mutableCopy];
-                [shuffledTweets shuffle];
-                for (Tweet *tweet in shuffledTweets)
-                {
-                    [tasks addObject:[self moodForTweet:tweet]];
-                }
-                return [BFTask taskForCompletionOfAllTasks:tasks];
-            }]
-            continueWithExecutor:[BFExecutor mainThreadExecutor]
-                       withBlock:^id(BFTask *task)
-                       {
-                           if (task.error)
-                           {
-                               [self manageError:task.error];
-                           }
-                           return task;
-                       }];
+         {
+             BFTaskCompletionSource *source = [BFTaskCompletionSource taskCompletionSource];
+             self.iOSAccounts = task.result;
+             
+             if([_iOSAccounts count] == 0)
+             {
+                 [source setResult:nil];
+                 [[[UIAlertView alloc] initWithTitle:@"Error"
+                                             message:@"No twitter account found. Please check your phone's settings."
+                                            delegate:nil
+                                   cancelButtonTitle:@"OK"
+                                   otherButtonTitles:nil] show];
+             }
+             else
+             {
+                 ACAccount *account = [self.iOSAccounts firstObject];
+                 return [self loginToTwitterWithAccount:account];
+             }
+             return source.task;
+         }]
+        continueWithSuccessBlock:^id(BFTask *task)
+        {
+            self.username = task.result;
+            [self refreshView];
+            return [self loadTimeline];
+        }]
+       continueWithExecutor:[BFExecutor mainThreadExecutor]
+       withBlock:^id(BFTask *task)
+       {
+           self.tweets = task.result;
+           [self refreshView];
+           if (task.error)
+           {
+               [self manageError:task.error];
+           }
+           return task;
+       }]
+      continueWithSuccessBlock:^id(BFTask *task)
+      {
+          NSMutableArray *tasks = [NSMutableArray array];
+          NSMutableArray *shuffledTweets = [self.tweets mutableCopy];
+          [shuffledTweets shuffle];
+          for (Tweet *tweet in shuffledTweets)
+          {
+              [tasks addObject:[self moodForTweet:tweet]];
+          }
+          return [BFTask taskForCompletionOfAllTasks:tasks];
+      }]
+     continueWithExecutor:[BFExecutor mainThreadExecutor]
+     withBlock:^id(BFTask *task)
+     {
+         if (task.error)
+         {
+             [self manageError:task.error];
+         }
+         return task;
+     }];
 }
 
 - (BFTask *)loginToTwitterWithAccount:(ACAccount *)account
@@ -137,7 +142,7 @@ NSString *const kMoodCellIdentifier = @"moodCellIdentifier";
 - (void)manageError:(NSError *)error
 {
     [[[UIAlertView alloc] initWithTitle:@"Error"
-                                message:[error description]
+                                message:@"Please check your internet connection and retry later."
                                delegate:nil
                       cancelButtonTitle:@"OK"
                       otherButtonTitles:nil] show];
@@ -160,22 +165,6 @@ NSString *const kMoodCellIdentifier = @"moodCellIdentifier";
                            }
                            return task;
                        }];
-}
-
-
-
-/********************************************************************************/
-#pragma mark - UIActionSheetDelegate
-
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex != [actionSheet cancelButtonIndex])
-    {
-        NSUInteger accountIndex = (NSUInteger) (buttonIndex - 1);
-        ACAccount *account = _iOSAccounts[accountIndex];
-
-        [self loginToTwitterWithAccount:account];
-    }
 }
 
 /********************************************************************************/
@@ -202,6 +191,20 @@ NSString *const kMoodCellIdentifier = @"moodCellIdentifier";
     return 44.f;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *headerView = [[[NSBundle mainBundle] loadNibNamed:@"HeaderView" owner:self options:nil] firstObject];
+//    headerView.text = [NSString stringWithFormat:@"Connected as @%@", self.username];
+    
+    
+    return headerView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 50.f;
+}
+
 /********************************************************************************/
 #pragma mark - UITableViewDelegate
 
@@ -210,7 +213,10 @@ NSString *const kMoodCellIdentifier = @"moodCellIdentifier";
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     MoodTableViewCell *cell = (MoodTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
-    [cell rotateView];
+    if(cell.tweet.mood != TWMoodUndefined)
+    {
+        [cell rotateView];
+    }
 }
 
 @end

@@ -123,6 +123,7 @@
                             <outlet property="delegate" destination="WV0-K6-c5r" id="XKT-xo-l6P"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="Gux-o0-0Mc"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IbB-EI-S0e" userLabel="First Responder" sceneMemberID="firstResponder"/>
