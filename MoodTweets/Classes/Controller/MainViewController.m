@@ -207,9 +207,10 @@ NSString *const kMoodCellIdentifier = @"moodCellIdentifier";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.tableView reloadRowsAtIndexPaths:@[indexPath]
-                          withRowAnimation:UITableViewRowAnimationNone];
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    MoodTableViewCell *cell = (MoodTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+    [cell rotateView];
 }
 
 @end

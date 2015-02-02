@@ -5,6 +5,11 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="Vyp-TU-Odg">
@@ -41,6 +46,13 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I3O-74-VSF" id="JGB-4d-4Jd">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Zl0-ug-bgF">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R63-hT-pK3" userLabel="GraphView">
                                             <rect key="frame" x="225" y="2" width="150" height="39"/>
                                             <color key="backgroundColor" red="0.79797757059999996" green="0.38337953629999999" blue="0.64635836690000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -58,16 +70,40 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="R63-hT-pK3" firstAttribute="centerX" secondItem="JGB-4d-4Jd" secondAttribute="centerX" id="6PZ-LD-OeR"/>
+                                        <constraint firstItem="Zl0-ug-bgF" firstAttribute="leading" secondItem="JGB-4d-4Jd" secondAttribute="leadingMargin" id="6iw-Vr-Zjg"/>
+                                        <constraint firstAttribute="trailing" secondItem="Zl0-ug-bgF" secondAttribute="trailing" id="9Em-9U-6Ke"/>
                                         <constraint firstAttribute="centerX" secondItem="R63-hT-pK3" secondAttribute="centerX" id="AJb-kr-c3k"/>
                                         <constraint firstItem="R63-hT-pK3" firstAttribute="leading" secondItem="JGB-4d-4Jd" secondAttribute="leadingMargin" constant="28" id="EUY-AO-ecC"/>
+                                        <constraint firstItem="Zl0-ug-bgF" firstAttribute="trailing" secondItem="JGB-4d-4Jd" secondAttribute="trailingMargin" constant="-8" id="IEk-mc-m2f"/>
                                         <constraint firstItem="R63-hT-pK3" firstAttribute="centerX" secondItem="ela-R1-xHR" secondAttribute="centerX" id="JKW-wf-3vv"/>
+                                        <constraint firstItem="Zl0-ug-bgF" firstAttribute="top" secondItem="JGB-4d-4Jd" secondAttribute="topMargin" id="MZF-gO-UjS"/>
                                         <constraint firstItem="R63-hT-pK3" firstAttribute="centerY" secondItem="ela-R1-xHR" secondAttribute="centerY" id="NBC-Su-mY1"/>
+                                        <constraint firstItem="Zl0-ug-bgF" firstAttribute="leading" secondItem="JGB-4d-4Jd" secondAttribute="leadingMargin" constant="-8" id="SoU-5J-7CJ"/>
                                         <constraint firstAttribute="centerY" secondItem="R63-hT-pK3" secondAttribute="centerY" id="Uwa-il-lc2"/>
+                                        <constraint firstItem="Zl0-ug-bgF" firstAttribute="top" secondItem="JGB-4d-4Jd" secondAttribute="topMargin" constant="-8" id="YUM-Yc-8ul"/>
+                                        <constraint firstItem="Zl0-ug-bgF" firstAttribute="leading" secondItem="JGB-4d-4Jd" secondAttribute="leading" id="dNk-Zs-Cnz"/>
                                         <constraint firstItem="R63-hT-pK3" firstAttribute="height" secondItem="ela-R1-xHR" secondAttribute="height" id="e8Q-86-EXG"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Zl0-ug-bgF" secondAttribute="trailing" id="eLh-dV-fR5"/>
+                                        <constraint firstItem="Zl0-ug-bgF" firstAttribute="top" secondItem="JGB-4d-4Jd" secondAttribute="top" id="j4j-Mh-y1y"/>
+                                        <constraint firstItem="Zl0-ug-bgF" firstAttribute="bottom" secondItem="JGB-4d-4Jd" secondAttribute="bottomMargin" constant="-8" id="nFT-zX-LTU"/>
                                         <constraint firstItem="R63-hT-pK3" firstAttribute="top" secondItem="JGB-4d-4Jd" secondAttribute="top" constant="2" id="ndb-s7-oPY"/>
+                                        <constraint firstAttribute="trailing" secondItem="Zl0-ug-bgF" secondAttribute="trailing" id="qk9-ad-aac"/>
+                                        <constraint firstAttribute="bottom" secondItem="Zl0-ug-bgF" secondAttribute="bottom" id="vdd-rV-fq3"/>
+                                        <constraint firstAttribute="bottom" secondItem="Zl0-ug-bgF" secondAttribute="bottom" id="xpA-Dg-m0Q"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Zl0-ug-bgF" secondAttribute="bottom" id="yq2-6W-lCm"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
+                                            <exclude reference="6iw-Vr-Zjg"/>
+                                            <exclude reference="IEk-mc-m2f"/>
+                                            <exclude reference="MZF-gO-UjS"/>
+                                            <exclude reference="SoU-5J-7CJ"/>
+                                            <exclude reference="YUM-Yc-8ul"/>
+                                            <exclude reference="eLh-dV-fR5"/>
+                                            <exclude reference="nFT-zX-LTU"/>
+                                            <exclude reference="qk9-ad-aac"/>
+                                            <exclude reference="vdd-rV-fq3"/>
+                                            <exclude reference="yq2-6W-lCm"/>
                                             <exclude reference="6PZ-LD-OeR"/>
                                             <exclude reference="EUY-AO-ecC"/>
                                         </mask>
@@ -79,6 +115,7 @@
                                     <outlet property="graphView" destination="R63-hT-pK3" id="Jgp-2N-xpV"/>
                                     <outlet property="graphViewWidthConstraint" destination="FfW-2i-QbA" id="ki8-rz-4kR"/>
                                     <outlet property="smileyView" destination="ela-R1-xHR" id="Uwf-gl-eCy"/>
+                                    <outlet property="tweetTextLabel" destination="Zl0-ug-bgF" id="ft8-Qc-5GZ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -90,7 +127,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IbB-EI-S0e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="361" y="488"/>
+            <point key="canvasLocation" x="361" y="486"/>
         </scene>
     </scenes>
 </document>

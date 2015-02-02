@@ -15,16 +15,16 @@
     switch (self.mood)
     {
         case TWMoodNegative:
-            color = [UIColor pomegranateColor];
+            color = [UIColor peterRiverColor];
             break;
 
         case TWMoodPositive:
-            color = [UIColor emerlandColor];
+            color = [UIColor turquoiseColor];
             break;
 
 
         case TWMoodNeutral:
-            color = [UIColor concreteColor];
+            color = [UIColor sunflowerColor];
             break;
 
         default:

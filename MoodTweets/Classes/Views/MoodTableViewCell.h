@@ -13,5 +13,6 @@
 @property(nonatomic, retain) Tweet *tweet;
 
 - (void)displayMood;
+- (void)rotateView;
 
 @end
