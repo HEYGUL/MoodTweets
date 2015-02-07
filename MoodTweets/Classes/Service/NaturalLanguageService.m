@@ -26,11 +26,12 @@ NSString *const kSentimentScoreKey = @"sentiment-score";
 /********************************************************************************/
 #pragma mark - Public Methods
 
-- (BFTask *)moodForTweet:(Tweet *)tweet
++ (BFTask *)moodForTweet:(Tweet *)tweet
 {
     BFTaskCompletionSource *source = [BFTaskCompletionSource taskCompletionSource];
 
     NSDictionary *headers = [self requestHeaders];
+
     [[UNIRest get:^(UNISimpleRequest *request)
     {
         [request setUrl:[self urlForTweetText:tweet.text]];
@@ -52,16 +53,18 @@ NSString *const kSentimentScoreKey = @"sentiment-score";
     return source.task;
 }
 
+
+
 /********************************************************************************/
 #pragma mark - Private Methods
 
-- (NSString *)urlForTweetText:(NSString *)text
++ (NSString *)urlForTweetText:(NSString *)text
 {
     NSString *escapedText = [text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     return [NSString stringWithFormat:kUrlFormatString, escapedText];
 }
 
-- (NSDictionary *)requestHeaders
++ (NSDictionary *)requestHeaders
 {
     NSDictionary *headers = @{kMashapeHeaderKey : kMashapeHeaderValue, kAcceptKey : kAcceptValue};
     return headers;

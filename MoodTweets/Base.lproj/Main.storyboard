@@ -8,6 +8,9 @@
     <customFonts key="customFonts">
         <mutableArray key="Lato-Regular.ttf">
             <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -40,6 +43,50 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="cic-oh-fZI">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="aB4-dm-ilK">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="74"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connecting..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KCS-Gt-pvV">
+                                    <rect key="frame" x="8" y="16" width="584" height="21"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="21" id="J5u-fY-4qm"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                    <color key="textColor" red="0.0" green="0.1764705882" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Display tweet moods of : @" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJF-V6-U6P">
+                                    <rect key="frame" x="8" y="45" width="199" height="21"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="21" id="FWt-1M-e0M"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                    <color key="textColor" red="0.0" green="0.1764705882" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Twitter User Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7gh-GV-3qN" customClass="FUITextField">
+                                    <rect key="frame" x="211" y="41" width="381" height="30"/>
+                                    <color key="textColor" red="0.0" green="0.1764705882" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="WV0-K6-c5r" id="Jyy-Up-0Vv"/>
+                                    </connections>
+                                </textField>
+                            </subviews>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="KCS-Gt-pvV" firstAttribute="top" secondItem="aB4-dm-ilK" secondAttribute="top" constant="16" id="17Y-QH-N2j"/>
+                                <constraint firstItem="KCS-Gt-pvV" firstAttribute="leading" secondItem="aB4-dm-ilK" secondAttribute="leading" constant="8" id="Gsb-be-odT"/>
+                                <constraint firstItem="7gh-GV-3qN" firstAttribute="leading" secondItem="JJF-V6-U6P" secondAttribute="trailing" constant="4" id="IXh-Np-53L"/>
+                                <constraint firstAttribute="trailing" secondItem="KCS-Gt-pvV" secondAttribute="trailing" constant="8" id="Nkt-4K-qG6"/>
+                                <constraint firstAttribute="trailing" secondItem="7gh-GV-3qN" secondAttribute="trailing" constant="8" id="WR3-yI-jQI"/>
+                                <constraint firstItem="JJF-V6-U6P" firstAttribute="centerY" secondItem="7gh-GV-3qN" secondAttribute="centerY" id="g1O-Bq-N0w"/>
+                                <constraint firstItem="JJF-V6-U6P" firstAttribute="leading" secondItem="aB4-dm-ilK" secondAttribute="leading" constant="8" id="so0-LT-29O"/>
+                                <constraint firstItem="JJF-V6-U6P" firstAttribute="top" secondItem="KCS-Gt-pvV" secondAttribute="bottom" constant="8" id="tMP-0R-gYp"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="moodCellIdentifier" rowHeight="44" id="I3O-74-VSF" customClass="MoodTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -125,6 +172,10 @@
                     </tableView>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="Gux-o0-0Mc"/>
+                    <connections>
+                        <outlet property="connectedAccountLabel" destination="KCS-Gt-pvV" id="tXb-Q3-QKC"/>
+                        <outlet property="usernameTextField" destination="7gh-GV-3qN" id="Id8-3O-b0J"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IbB-EI-S0e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

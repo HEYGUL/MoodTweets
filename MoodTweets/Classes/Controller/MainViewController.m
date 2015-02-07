@@ -18,15 +18,16 @@
 #import <STTwitter/STTwitterAPI.h>
 #import <Accounts/Accounts.h>
 #import <Bolts/Bolts.h>
-//#import "HeaderView.h"
 
 NSString *const kMoodCellIdentifier = @"moodCellIdentifier";
 
-@interface MainViewController () <UIViewControllerTransitioningDelegate, UITableViewDataSource>
+@interface MainViewController () <UIViewControllerTransitioningDelegate, UITableViewDataSource, UITextFieldDelegate>
 
 @property(nonatomic, strong) NSString *username;
 @property(nonatomic, strong) NSArray *tweets;
 @property(nonatomic, strong) NSArray *iOSAccounts;
+@property(nonatomic, weak) IBOutlet UITextField *usernameTextField;
+@property(nonatomic, weak) IBOutlet UILabel *connectedAccountLabel;
 
 @end
 
@@ -45,6 +46,15 @@ NSString *const kMoodCellIdentifier = @"moodCellIdentifier";
 
     [self configureView];
     [self loadData];
+}
+
+/********************************************************************************/
+#pragma mark - Custom Getters / Setters
+
+- (void)setUsername:(NSString *)username
+{
+    _username = username;
+    self.usernameTextField.text = _username;
 }
 
 /********************************************************************************/
@@ -97,7 +107,11 @@ NSString *const kMoodCellIdentifier = @"moodCellIdentifier";
          }]
         continueWithSuccessBlock:^id(BFTask *task)
         {
-            self.username = task.result;
+            self.connectedAccountLabel.text = [NSString stringWithFormat:@"Connected as @%@",task.result];
+            if(self.username.length == 0)
+            {
+                self.username = task.result;
+            }
             [self refreshView];
             return [self loadTimeline];
         }]
@@ -142,7 +156,7 @@ NSString *const kMoodCellIdentifier = @"moodCellIdentifier";
 - (void)manageError:(NSError *)error
 {
     [[[UIAlertView alloc] initWithTitle:@"Error"
-                                message:@"Please check your internet connection and retry later."
+                                message:@"Please check your internet connection and try again later."
                                delegate:nil
                       cancelButtonTitle:@"OK"
                       otherButtonTitles:nil] show];
@@ -155,7 +169,7 @@ NSString *const kMoodCellIdentifier = @"moodCellIdentifier";
 
 - (BFTask *)moodForTweet:(Tweet *)tweet
 {
-    return [[[NaturalLanguageService new] moodForTweet:tweet]
+    return [[NaturalLanguageService moodForTweet:tweet]
             continueWithExecutor:[BFExecutor mainThreadExecutor]
                        withBlock:^id(BFTask *task)
                        {
@@ -191,20 +205,6 @@ NSString *const kMoodCellIdentifier = @"moodCellIdentifier";
     return 44.f;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    UIView *headerView = [[[NSBundle mainBundle] loadNibNamed:@"HeaderView" owner:self options:nil] firstObject];
-//    headerView.text = [NSString stringWithFormat:@"Connected as @%@", self.username];
-    
-    
-    return headerView;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 50.f;
-}
-
 /********************************************************************************/
 #pragma mark - UITableViewDelegate
 
@@ -217,6 +217,17 @@ NSString *const kMoodCellIdentifier = @"moodCellIdentifier";
     {
         [cell rotateView];
     }
+}
+
+/********************************************************************************/
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    _username = textField.text;
+    [self loadData];
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end

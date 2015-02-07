@@ -20,7 +20,6 @@
 		A81261C21A7C385400167FD5 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A81261C01A7C385400167FD5 /* Crashlytics.framework */; };
 		A81261C31A7C385400167FD5 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A81261C11A7C385400167FD5 /* Fabric.framework */; };
 		A81261C41A7C486800167FD5 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8B880901A7C2F4400DA4252 /* Info.plist */; };
-		A81261C61A8022F900167FD5 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A81261C51A8022F900167FD5 /* HeaderView.xib */; };
 		A825001D1A7564D6002EF323 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A825001C1A7564D6002EF323 /* Accounts.framework */; };
 		A8B880911A7C2F4400DA4252 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = A8B8806B1A7C2F4400DA4252 /* Podfile */; };
 		A8B880921A7C2F4400DA4252 /* Code.png in Resources */ = {isa = PBXBuildFile; fileRef = A8B8806E1A7C2F4400DA4252 /* Code.png */; };
@@ -72,7 +71,6 @@
 		A81261BC1A7C31B100167FD5 /* NavigationControllerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationControllerDelegate.m; sourceTree = "<group>"; };
 		A81261C01A7C385400167FD5 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		A81261C11A7C385400167FD5 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
-		A81261C51A8022F900167FD5 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		A825001C1A7564D6002EF323 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		A8B8806B1A7C2F4400DA4252 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		A8B8806E1A7C2F4400DA4252 /* Code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Code.png; sourceTree = "<group>"; };
@@ -276,7 +274,6 @@
 				1151E23DFC9E9928DC1D80E0 /* MoodTableViewCell.h */,
 				1151EEF610CEA1B311AED5DD /* SmileyView.m */,
 				1151E94725DF4627029FA49B /* SmileyView.h */,
-				A81261C51A8022F900167FD5 /* HeaderView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -339,6 +336,9 @@
 			attributes = {
 				ORGANIZATIONNAME = Gl0ub1l;
 				TargetAttributes = {
+					1151E6C65E7FB69321C5A470 = {
+						DevelopmentTeam = SNXF64ZJQB;
+					};
 					1151E8D510E16785F499671F = {
 						TestTargetID = 1151E6C65E7FB69321C5A470;
 					};
@@ -374,7 +374,6 @@
 				A8B880941A7C2F4400DA4252 /* Images.xcassets in Resources */,
 				A8B880981A7C2F4400DA4252 /* Main.storyboard in Resources */,
 				A8B880911A7C2F4400DA4252 /* Podfile in Resources */,
-				A81261C61A8022F900167FD5 /* HeaderView.xib in Resources */,
 				A8B880951A7C2F4400DA4252 /* Lato-Regular.ttf in Resources */,
 				A8B880971A7C2F4400DA4252 /* LaunchScreen.xib in Resources */,
 			);
@@ -503,6 +502,8 @@
 			baseConfigurationReference = 19F109530D1E49C54F16588E /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -510,6 +511,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/MoodTweets/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 			};
 			name = Debug;
@@ -592,6 +594,8 @@
 			baseConfigurationReference = 81028C57E02D67B12EF601B3 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -599,6 +603,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/MoodTweets/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 			};
 			name = Release;

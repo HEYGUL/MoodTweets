@@ -7,7 +7,8 @@
 
 @class Tweet;
 
-
 @interface NaturalLanguageService : NSObject
-- (BFTask *)moodForTweet:(Tweet *)tweet;
+
++ (BFTask *)moodForTweet:(Tweet *)tweet;
+
 @end
