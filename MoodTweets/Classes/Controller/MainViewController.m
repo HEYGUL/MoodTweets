@@ -21,13 +21,19 @@
 
 NSString *const kMoodCellIdentifier = @"moodCellIdentifier";
 
-@interface MainViewController () <UIViewControllerTransitioningDelegate, UITableViewDataSource, UITextFieldDelegate>
+@interface MainViewController () <UITableViewDataSource, UITextFieldDelegate>
 
 @property(nonatomic, strong) NSString *username;
 @property(nonatomic, strong) NSArray *tweets;
 @property(nonatomic, strong) NSArray *iOSAccounts;
 @property(nonatomic, weak) IBOutlet UITextField *usernameTextField;
 @property(nonatomic, weak) IBOutlet UILabel *connectedAccountLabel;
+
+@property(nonatomic, strong) UIVisualEffectView *effectView;
+@property(nonatomic, weak) IBOutlet UITableView *tableView;
+@property(nonatomic, weak) IBOutlet UIView *menuView;
+@property(nonatomic, weak) IBOutlet NSLayoutConstraint *menuViewHeightConstraints;
+@property(nonatomic, weak) IBOutlet UIImageView *expandImageView;
 
 @end
 
@@ -62,9 +68,26 @@ NSString *const kMoodCellIdentifier = @"moodCellIdentifier";
 
 - (void)configureView
 {
+    self.view.backgroundColor = [UIColor cloudsColor];
     self.tableView.backgroundColor = [UIColor cloudsColor];
     self.tableView.separatorColor = [UIColor clearColor];
-    self.tableView.backgroundView = nil;
+    
+    UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    self.effectView = [[UIVisualEffectView alloc] initWithEffect:blur];
+    self.effectView.frame = self.view.bounds;
+    self.effectView.hidden = YES;
+    [self.view insertSubview:self.effectView aboveSubview:self.tableView];
+    
+    self.menuViewHeightConstraints.constant = 20;
+    self.menuView.layer.cornerRadius = 3.f;
+    self.menuView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.menuView.layer.borderWidth = 1.f;
+    self.menuView.layer.shadowColor = [UIColor lightGrayColor].CGColor;
+    self.menuView.layer.shadowRadius = 3.f;
+    self.menuView.layer.shadowOffset = CGSizeMake(2.f, 2.f);
+    self.menuView.layer.masksToBounds = YES;
+    self.menuView.layer.shadowOpacity = .8f;
+    [self.menuView.layer setShouldRasterize:YES];
 }
 
 - (void)refreshView
@@ -228,6 +251,38 @@ NSString *const kMoodCellIdentifier = @"moodCellIdentifier";
     [self loadData];
     [textField resignFirstResponder];
     return YES;
+}
+
+- (BOOL)menuIsExpanded
+{
+    return !CGAffineTransformIsIdentity(self.expandImageView.transform);
+}
+
+/********************************************************************************/
+#pragma mark - Menu View
+
+- (IBAction)showMenu:(id)sender
+{
+    self.menuView.layer.masksToBounds = YES;
+    if(![self menuIsExpanded])
+    {
+        self.menuViewHeightConstraints.constant = 93;
+    }
+    else
+    {
+        self.menuViewHeightConstraints.constant = 20;
+        self.effectView.hidden = YES;
+    }
+
+    [UIView animateWithDuration:.3f
+                     animations:^{
+                         self.expandImageView.transform = [self menuIsExpanded] ? CGAffineTransformIdentity : CGAffineTransformMakeRotation(M_PI);
+                         [self.menuView.superview layoutIfNeeded];
+                     }
+     completion:^(BOOL finished) {
+         self.effectView.hidden = ![self menuIsExpanded];
+         self.menuView.layer.masksToBounds = ![self menuIsExpanded];
+     }];
 }
 
 @end
