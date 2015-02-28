@@ -25,9 +25,9 @@
     static TwitterManager *twitterManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^
-    {
-        twitterManager = [[self alloc] init];
-    });
+                  {
+                      twitterManager = [[self alloc] init];
+                  });
     return twitterManager;
 }
 
@@ -42,17 +42,17 @@
     ACAccountStoreRequestAccessCompletionHandler accountStoreRequestCompletionHandler = ^(BOOL granted, NSError *error)
     {
         [[NSOperationQueue mainQueue] addOperationWithBlock:^
-        {
-            if (granted)
-            {
-                NSArray *iOSAccounts = [accountStore accountsWithAccountType:accountType];
-                [source setResult:iOSAccounts];
-            }
-            else
-            {
-                [source setError:error];
-            }
-        }];
+         {
+             if (granted)
+             {
+                 NSArray *iOSAccounts = [accountStore accountsWithAccountType:accountType];
+                 [source setResult:iOSAccounts];
+             }
+             else
+             {
+                 [source setError:error];
+             }
+         }];
     };
     [accountStore requestAccessToAccountsWithType:accountType
                                           options:NULL
@@ -65,15 +65,15 @@
     BFTaskCompletionSource *source = [BFTaskCompletionSource taskCompletionSource];
     self.twitterAPI = [STTwitterAPI twitterAPIOSWithAccount:account];
     [self.twitterAPI verifyCredentialsWithSuccessBlock:^(NSString *username)
-            {
-
-                [source setResult:username];
-            }
+     {
+         
+         [source setResult:username];
+     }
                                             errorBlock:^(NSError *error)
-                                            {
-                                                [source setError:error];
-                                            }];
-
+     {
+         [source setError:error];
+     }];
+    
     return source.task;
 }
 
@@ -87,14 +87,34 @@
     [self.twitterAPI getUserTimelineWithScreenName:screenName
                                              count:200
                                       successBlock:^(NSArray *statuses)
-                                      {
-                                          NSArray *tweets = [Tweet arrayOfModelsFromDictionaries:statuses];
-                                          [source setResult:tweets];
-                                      }
+     {
+         NSArray *tweets = [Tweet arrayOfModelsFromDictionaries:statuses];
+         [source setResult:tweets];
+     }
                                         errorBlock:^(NSError *error)
-                                        {
-                                            [source setError:error];
-                                        }];
+     {
+         [source setError:error];
+     }];
+    return source.task;
+}
+
+/********************************************************************************/
+#pragma mark - Profile image
+
+- (BFTask *)loadProfileImageForUser:(NSString*)user
+{
+    BFTaskCompletionSource *source = [BFTaskCompletionSource taskCompletionSource];
+    
+    NSString *screenName = [user hasPrefix:@"@"] ? user : [NSString stringWithFormat:@"@%@", user];
+    [self.twitterAPI profileImageFor:screenName
+                        successBlock:^(id image)
+     {
+         [source setResult:image];
+     }
+                          errorBlock:^(NSError *error)
+     {
+         [source setError:error];
+     }];
     return source.task;
 }
 

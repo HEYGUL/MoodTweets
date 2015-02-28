@@ -24,16 +24,18 @@ NSString *const kMoodCellIdentifier = @"moodCellIdentifier";
 @interface MainViewController () <UITableViewDataSource, UITextFieldDelegate>
 
 @property(nonatomic, strong) NSString *username;
+@property(nonatomic, strong) UIImage *profileImage;
 @property(nonatomic, strong) NSArray *tweets;
 @property(nonatomic, strong) NSArray *iOSAccounts;
 @property(nonatomic, weak) IBOutlet UITextField *usernameTextField;
 @property(nonatomic, weak) IBOutlet UILabel *connectedAccountLabel;
 
-@property(nonatomic, strong) UIVisualEffectView *effectView;
+@property(nonatomic, weak) IBOutlet UIVisualEffectView *effectView;
 @property(nonatomic, weak) IBOutlet UITableView *tableView;
 @property(nonatomic, weak) IBOutlet UIView *menuView;
 @property(nonatomic, weak) IBOutlet NSLayoutConstraint *menuViewHeightConstraints;
 @property(nonatomic, weak) IBOutlet UIImageView *expandImageView;
+@property(nonatomic, weak) IBOutlet UIButton *profileButton;
 
 @end
 
@@ -72,13 +74,6 @@ NSString *const kMoodCellIdentifier = @"moodCellIdentifier";
     self.tableView.backgroundColor = [UIColor cloudsColor];
     self.tableView.separatorColor = [UIColor clearColor];
     
-    UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-    self.effectView = [[UIVisualEffectView alloc] initWithEffect:blur];
-    self.effectView.frame = self.view.bounds;
-    self.effectView.hidden = YES;
-    [self.view insertSubview:self.effectView aboveSubview:self.tableView];
-    
-    self.menuViewHeightConstraints.constant = 20;
     self.menuView.layer.cornerRadius = 3.f;
     self.menuView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.menuView.layer.borderWidth = 1.f;
@@ -88,6 +83,12 @@ NSString *const kMoodCellIdentifier = @"moodCellIdentifier";
     self.menuView.layer.masksToBounds = YES;
     self.menuView.layer.shadowOpacity = .8f;
     [self.menuView.layer setShouldRasterize:YES];
+    self.effectView.transform = CGAffineTransformMakeTranslation(0.f, CGRectGetHeight(self.view.frame));
+    
+    self.profileButton.layer.cornerRadius = CGRectGetWidth(self.profileButton.frame) / 2.f;
+    self.profileButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.profileButton.layer.borderWidth = 1.f;
+    self.profileButton.clipsToBounds = YES;
 }
 
 - (void)refreshView
@@ -106,7 +107,7 @@ NSString *const kMoodCellIdentifier = @"moodCellIdentifier";
 - (void)loadData
 {
     BFTask *twitterTask = [[TwitterManager sharedManager] accessTwitterAccounts];
-    [[[[[twitterTask continueWithExecutor:[BFExecutor mainThreadExecutor]
+    [[[[[[twitterTask continueWithExecutor:[BFExecutor mainThreadExecutor]
                          withSuccessBlock:^id(BFTask *task)
          {
              BFTaskCompletionSource *source = [BFTaskCompletionSource taskCompletionSource];
@@ -136,8 +137,13 @@ NSString *const kMoodCellIdentifier = @"moodCellIdentifier";
                 self.username = task.result;
             }
             [self refreshView];
-            return [self loadTimeline];
+            return [[TwitterManager sharedManager] loadProfileImageForUser:self.username];
         }]
+       continueWithBlock:^id(BFTask *task) {
+           self.profileImage = task.result;
+           [self.profileButton setBackgroundImage:self.profileImage forState:UIControlStateNormal];
+           return [self loadTimeline];
+       }]
        continueWithExecutor:[BFExecutor mainThreadExecutor]
        withBlock:^id(BFTask *task)
        {
@@ -250,6 +256,7 @@ NSString *const kMoodCellIdentifier = @"moodCellIdentifier";
     _username = textField.text;
     [self loadData];
     [textField resignFirstResponder];
+    [self showMenu:nil];
     return YES;
 }
 
@@ -263,26 +270,10 @@ NSString *const kMoodCellIdentifier = @"moodCellIdentifier";
 
 - (IBAction)showMenu:(id)sender
 {
-    self.menuView.layer.masksToBounds = YES;
-    if(![self menuIsExpanded])
-    {
-        self.menuViewHeightConstraints.constant = 93;
-    }
-    else
-    {
-        self.menuViewHeightConstraints.constant = 20;
-        self.effectView.hidden = YES;
-    }
-
     [UIView animateWithDuration:.3f
                      animations:^{
-                         self.expandImageView.transform = [self menuIsExpanded] ? CGAffineTransformIdentity : CGAffineTransformMakeRotation(M_PI);
-                         [self.menuView.superview layoutIfNeeded];
-                     }
-     completion:^(BOOL finished) {
-         self.effectView.hidden = ![self menuIsExpanded];
-         self.menuView.layer.masksToBounds = ![self menuIsExpanded];
-     }];
+                         self.effectView.transform = CGAffineTransformIsIdentity(self.effectView.transform) ? CGAffineTransformMakeTranslation(0.f, CGRectGetHeight(self.view.frame)) : CGAffineTransformIdentity;
+                     }];
 }
 
 @end

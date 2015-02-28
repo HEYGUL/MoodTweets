@@ -16,5 +16,6 @@
 - (BFTask *)accessTwitterAccounts;
 - (BFTask *)loginWithiOSAccount:(ACAccount *)account;
 - (BFTask *)loadTimelineWithUser:(NSString *)user;
+- (BFTask *)loadProfileImageForUser:(NSString*)user;
 
 @end
