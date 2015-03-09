@@ -257,7 +257,7 @@ NSString *const kMoodCellIdentifier = @"moodCellIdentifier";
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     MoodTableViewCell *cell = (MoodTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
-    if(cell.tweet.mood != TWMoodUndefined)
+    if (cell.tweet.mood != TWMoodUndefined)
     {
         [cell rotateView];
     }
@@ -285,9 +285,20 @@ NSString *const kMoodCellIdentifier = @"moodCellIdentifier";
 
 - (IBAction)showMenu:(id)sender
 {
+    BOOL willShow = !CGAffineTransformIsIdentity(self.effectView.transform);
+    
+    if (willShow)
+    {
+        [self.usernameTextField becomeFirstResponder];
+    }
+    else
+    {
+        [self.usernameTextField resignFirstResponder];
+    }
+    
     [UIView animateWithDuration:.3f
                      animations:^{
-                         self.effectView.transform = CGAffineTransformIsIdentity(self.effectView.transform) ? CGAffineTransformMakeTranslation(0.f, CGRectGetHeight(self.view.frame)) : CGAffineTransformIdentity;
+                         self.effectView.transform = willShow ? CGAffineTransformIdentity : CGAffineTransformMakeTranslation(0.f, CGRectGetHeight(self.view.frame));
                      }];
 }
 
