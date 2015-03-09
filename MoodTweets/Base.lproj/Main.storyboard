@@ -6,6 +6,9 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <mutableArray key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </mutableArray>
         <mutableArray key="Lato-Regular.ttf">
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
@@ -43,7 +46,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="TyL-KI-DiX">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="sectionIndexBackgroundColor" red="0.79797757059999996" green="0.38337953629999999" blue="0.64635836690000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="moodCellIdentifier" rowHeight="44" id="ggc-yI-kRM" customClass="MoodTableViewCell">
@@ -129,6 +132,27 @@
                                     <outlet property="delegate" destination="glw-OJ-JGD" id="SQ9-Po-U29"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="D5v-YD-pbx" userLabel="Tuto Button">
+                                <rect key="frame" x="16" y="20" width="568" height="580"/>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="24"/>
+                                <state key="normal">
+                                    <string key="title">"Always choose positivity and happiness!"
+
+Tap anywhere to display your tweets moods and see if you are filling the internet with joy :-).
+
+Use the top right button to display any other user tweets.</string>
+                                    <color key="titleColor" red="0.0" green="0.1764705882" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="titleLabel.textAlignment">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="tutoButtonDidTap:" destination="glw-OJ-JGD" eventType="touchUpInside" id="Wce-2I-l5z"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycs-oc-ZSm">
                                 <rect key="frame" x="559" y="20" width="30" height="30"/>
                                 <constraints>
@@ -144,16 +168,16 @@
                                 </connections>
                             </button>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b5T-QS-s0g">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="3Xs-19-SOq">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="580"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GZe-N7-8FJ" userLabel="Menu View">
-                                            <rect key="frame" x="4" y="10" width="592" height="93"/>
+                                            <rect key="frame" x="8" y="20" width="584" height="93"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connecting..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ao5-ut-LkH">
-                                                    <rect key="frame" x="8" y="8" width="576" height="21"/>
+                                                    <rect key="frame" x="8" y="8" width="568" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="m0y-ZJ-NAn"/>
                                                     </constraints>
@@ -168,7 +192,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Twitter User Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DMU-HX-cbf" customClass="FUITextField">
-                                                    <rect key="frame" x="211" y="33" width="373" height="30"/>
+                                                    <rect key="frame" x="211" y="33" width="365" height="30"/>
                                                     <color key="textColor" red="0.0" green="0.1764705882" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -177,7 +201,7 @@
                                                     </connections>
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdq-Hx-kXo">
-                                                    <rect key="frame" x="0.0" y="73" width="592" height="20"/>
+                                                    <rect key="frame" x="0.0" y="73" width="584" height="20"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="Vk6-8m-vDb"/>
@@ -191,7 +215,7 @@
                                                     </connections>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_down.png" translatesAutoresizingMaskIntoConstraints="NO" id="iUZ-sj-MfY">
-                                                    <rect key="frame" x="289" y="80" width="14" height="9"/>
+                                                    <rect key="frame" x="285" y="80" width="14" height="9"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="9" id="7Wq-Yz-h39"/>
                                                         <constraint firstAttribute="width" constant="14" id="eNN-dk-QSg"/>
@@ -226,47 +250,46 @@
                                                 </mask>
                                             </variation>
                                         </view>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6O5-LW-poy" userLabel="Dismiss Button">
+                                            <rect key="frame" x="0.0" y="113" width="600" height="487"/>
+                                            <state key="normal">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="showMenu:" destination="glw-OJ-JGD" eventType="touchUpInside" id="f8u-dh-Gzb"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="GZe-N7-8FJ" secondAttribute="trailing" constant="4" id="0G4-1E-ZnW"/>
-                                        <constraint firstItem="GZe-N7-8FJ" firstAttribute="centerY" secondItem="3Xs-19-SOq" secondAttribute="centerY" id="XGd-XX-7ea"/>
-                                        <constraint firstItem="GZe-N7-8FJ" firstAttribute="top" secondItem="3Xs-19-SOq" secondAttribute="top" constant="10" id="bNO-qw-Gz3"/>
-                                        <constraint firstItem="GZe-N7-8FJ" firstAttribute="leading" secondItem="3Xs-19-SOq" secondAttribute="leading" constant="4" id="upW-YO-Tmk"/>
+                                        <constraint firstAttribute="trailing" secondItem="GZe-N7-8FJ" secondAttribute="trailing" constant="8" id="0G4-1E-ZnW"/>
+                                        <constraint firstAttribute="trailing" secondItem="6O5-LW-poy" secondAttribute="trailing" id="7Gp-1l-zyG"/>
+                                        <constraint firstItem="6O5-LW-poy" firstAttribute="top" secondItem="GZe-N7-8FJ" secondAttribute="bottom" id="Ro3-Ec-7GT"/>
+                                        <constraint firstAttribute="bottom" secondItem="6O5-LW-poy" secondAttribute="bottom" id="YBK-s9-mz9"/>
+                                        <constraint firstItem="GZe-N7-8FJ" firstAttribute="top" secondItem="3Xs-19-SOq" secondAttribute="top" constant="20" id="bNO-qw-Gz3"/>
+                                        <constraint firstItem="GZe-N7-8FJ" firstAttribute="leading" secondItem="3Xs-19-SOq" secondAttribute="leading" constant="8" id="upW-YO-Tmk"/>
+                                        <constraint firstItem="6O5-LW-poy" firstAttribute="leading" secondItem="3Xs-19-SOq" secondAttribute="leading" id="vs4-d0-1FF"/>
                                     </constraints>
-                                    <variation key="default">
-                                        <mask key="constraints">
-                                            <exclude reference="XGd-XX-7ea"/>
-                                        </mask>
-                                    </variation>
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="D5v-YD-pbx" secondAttribute="trailing" id="2PS-3E-ZIL"/>
+                            <constraint firstItem="VP2-6l-Gxq" firstAttribute="top" secondItem="D5v-YD-pbx" secondAttribute="bottom" id="4gb-Qj-L3m"/>
                             <constraint firstItem="VP2-6l-Gxq" firstAttribute="top" secondItem="b5T-QS-s0g" secondAttribute="bottom" id="669-yu-Y01"/>
                             <constraint firstItem="b5T-QS-s0g" firstAttribute="leading" secondItem="c2l-i2-BdL" secondAttribute="leading" id="Blx-IU-WRd"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="b5T-QS-s0g" secondAttribute="trailing" id="Chz-gK-aAM"/>
                             <constraint firstAttribute="trailing" secondItem="TyL-KI-DiX" secondAttribute="trailing" id="ECO-6m-QDy"/>
-                            <constraint firstItem="TyL-KI-DiX" firstAttribute="top" secondItem="c2l-i2-BdL" secondAttribute="top" constant="20" id="HlH-eo-KL6"/>
+                            <constraint firstItem="TyL-KI-DiX" firstAttribute="top" secondItem="c2l-i2-BdL" secondAttribute="top" id="HlH-eo-KL6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ycs-oc-ZSm" secondAttribute="trailing" constant="-5" id="Hn8-MC-ujX"/>
-                            <constraint firstItem="b5T-QS-s0g" firstAttribute="top" secondItem="o07-e9-rf8" secondAttribute="bottom" id="LKc-6z-x85"/>
+                            <constraint firstItem="b5T-QS-s0g" firstAttribute="top" secondItem="c2l-i2-BdL" secondAttribute="top" id="JgX-vh-R80"/>
                             <constraint firstAttribute="bottom" secondItem="TyL-KI-DiX" secondAttribute="bottom" id="P88-n3-khp"/>
                             <constraint firstItem="ycs-oc-ZSm" firstAttribute="top" secondItem="o07-e9-rf8" secondAttribute="bottom" id="RQT-lX-72e"/>
                             <constraint firstItem="TyL-KI-DiX" firstAttribute="leading" secondItem="c2l-i2-BdL" secondAttribute="leading" id="Yvf-k2-pkF"/>
-                            <constraint firstItem="VP2-6l-Gxq" firstAttribute="top" secondItem="b5T-QS-s0g" secondAttribute="bottom" id="ltJ-xH-ccE"/>
-                            <constraint firstItem="b5T-QS-s0g" firstAttribute="leading" secondItem="c2l-i2-BdL" secondAttribute="leadingMargin" id="xOb-Oi-ycm"/>
+                            <constraint firstItem="D5v-YD-pbx" firstAttribute="top" secondItem="o07-e9-rf8" secondAttribute="bottom" id="cIp-VZ-u3s"/>
+                            <constraint firstItem="D5v-YD-pbx" firstAttribute="leading" secondItem="c2l-i2-BdL" secondAttribute="leadingMargin" id="lQw-TW-1MW"/>
                             <constraint firstAttribute="trailing" secondItem="b5T-QS-s0g" secondAttribute="trailing" id="yzT-g3-ER2"/>
-                            <constraint firstItem="b5T-QS-s0g" firstAttribute="top" secondItem="o07-e9-rf8" secondAttribute="bottom" id="zTy-Nl-ylw"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="Chz-gK-aAM"/>
-                                <exclude reference="xOb-Oi-ycm"/>
-                                <exclude reference="zTy-Nl-ylw"/>
-                                <exclude reference="ltJ-xH-ccE"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="O3P-v3-Efu"/>
                     <connections>
@@ -277,6 +300,7 @@
                         <outlet property="menuViewHeightConstraints" destination="5Ud-Zj-bDa" id="7GH-6b-r7G"/>
                         <outlet property="profileButton" destination="ycs-oc-ZSm" id="L6a-ND-htY"/>
                         <outlet property="tableView" destination="TyL-KI-DiX" id="YWq-8e-2o5"/>
+                        <outlet property="tutoButton" destination="D5v-YD-pbx" id="2kM-BX-SkY"/>
                         <outlet property="usernameTextField" destination="DMU-HX-cbf" id="ykI-hQ-jtV"/>
                     </connections>
                 </viewController>

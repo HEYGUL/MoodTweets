@@ -37,6 +37,8 @@ NSString *const kMoodCellIdentifier = @"moodCellIdentifier";
 @property(nonatomic, weak) IBOutlet UIImageView *expandImageView;
 @property(nonatomic, weak) IBOutlet UIButton *profileButton;
 
+@property(nonatomic, weak) IBOutlet UIButton *tutoButton;
+
 @end
 
 @implementation MainViewController
@@ -53,7 +55,11 @@ NSString *const kMoodCellIdentifier = @"moodCellIdentifier";
     [super viewDidAppear:animated];
 
     [self configureView];
-    [self loadData];
+    
+    if (self.tutoButton.hidden)
+    {
+        [self loadData];
+    }
 }
 
 /********************************************************************************/
@@ -66,10 +72,20 @@ NSString *const kMoodCellIdentifier = @"moodCellIdentifier";
 }
 
 /********************************************************************************/
+#pragma mark - IBActions
+
+- (IBAction)tutoButtonDidTap:(id)sender
+{
+    self.tutoButton.hidden = YES;
+    [self loadData];
+}
+
+/********************************************************************************/
 #pragma mark - Private Methods
 
 - (void)configureView
 {
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = [UIColor cloudsColor];
     self.tableView.backgroundColor = [UIColor cloudsColor];
     self.tableView.separatorColor = [UIColor clearColor];
@@ -82,11 +98,10 @@ NSString *const kMoodCellIdentifier = @"moodCellIdentifier";
     self.menuView.layer.shadowOffset = CGSizeMake(2.f, 2.f);
     self.menuView.layer.masksToBounds = YES;
     self.menuView.layer.shadowOpacity = .8f;
-    [self.menuView.layer setShouldRasterize:YES];
     self.effectView.transform = CGAffineTransformMakeTranslation(0.f, CGRectGetHeight(self.view.frame));
     
     self.profileButton.layer.cornerRadius = CGRectGetWidth(self.profileButton.frame) / 2.f;
-    self.profileButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.profileButton.layer.borderColor = [UIColor blackColor].CGColor;
     self.profileButton.layer.borderWidth = 1.f;
     self.profileButton.clipsToBounds = YES;
 }
@@ -113,7 +128,7 @@ NSString *const kMoodCellIdentifier = @"moodCellIdentifier";
              BFTaskCompletionSource *source = [BFTaskCompletionSource taskCompletionSource];
              self.iOSAccounts = task.result;
              
-             if([_iOSAccounts count] == 0)
+             if ([_iOSAccounts count] == 0)
              {
                  [source setResult:nil];
                  [[[UIAlertView alloc] initWithTitle:@"Error"
